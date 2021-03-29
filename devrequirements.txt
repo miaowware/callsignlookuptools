@@ -1,0 +1,7 @@
+# Tooling
+flake8
+mypy
+twine
+lxml-stubs
+-r requirements.txt
+-r docs/requirements.txt
