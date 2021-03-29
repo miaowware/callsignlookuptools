@@ -1,0 +1,32 @@
+name: Upload Python Package
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: |
+        python -m pip install -U pip setuptools wheel
+        python -m pip install -Ur devrequirements.txt
+    - name: Build and publish
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine check dist/*
+        twine upload dist/*
