@@ -104,10 +104,10 @@ class AuthMixinAbc(ABC):
     @property
     def session_key(self) -> str:
         """
-        :getter: gets QRZ session key
+        :getter: gets API session key
         :rtype: str
 
-        :setter: sets QRZ session key
+        :setter: sets API session key
         :type: str
         """
         return self._session_key
@@ -143,20 +143,22 @@ class AuthMixinAbc(ABC):
             raise CallsignLookupError(data["error"])
 
 
-class SyncAuthMixin(AuthMixinAbc):
-    def _login(self, **query):
-        self._process_login(self._do_query(**query))
+if find_spec("requests"):
+    class SyncAuthMixin(AuthMixinAbc):
+        def _login(self, **query):
+            self._process_login(self._do_query(**query))
 
-    def _check_session(self, **query):
-        self._process_check_session(self._do_query(**query))
+        def _check_session(self, **query):
+            self._process_check_session(self._do_query(**query))
 
 
-class AsyncAuthMixin(AuthMixinAbc):
-    async def _login(self, **query):
-        self._process_login(await self._do_query(**query))
+if find_spec("aiohttp"):
+    class AsyncAuthMixin(AuthMixinAbc):
+        async def _login(self, **query):
+            self._process_login(await self._do_query(**query))
 
-    async def _check_session(self, **query):
-        self._process_check_session(await self._do_query(**query))
+        async def _check_session(self, **query):
+            self._process_check_session(await self._do_query(**query))
 
 
 if find_spec("requests"):
