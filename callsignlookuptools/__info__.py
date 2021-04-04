@@ -4,7 +4,7 @@
 
 __project__ = "callsignlookuptools"
 __summary__ = "QRZ and callook.info API interfaces in Python with sync and async support"
-__webpage__ = "https://qrztools.miaow.io"
+__webpage__ = "https://callsignlookuptools.miaow.io"
 
 __version__ = "0.0.0"
 

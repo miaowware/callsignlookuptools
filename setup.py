@@ -30,7 +30,7 @@ setup(
         "Topic :: Communications :: Ham Radio",
         "Framework :: AsyncIO",
     ],
-    packages=["qrztools"],
+    packages=["callsignlookuptools"],
     package_data={
         "callsignlookuptools": ["py.typed"]
     },

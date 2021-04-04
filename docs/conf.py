@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = 'qrztools'
+project = 'callsignlookuptools'
 copyright = '2021 classabbyamp, 0x5c'
 author = 'classabbyamp, 0x5c'
 
