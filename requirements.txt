@@ -1,0 +1,6 @@
+lxml
+gridtools
+requests
+aiohttp
+rich
+pydantic
