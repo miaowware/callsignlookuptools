@@ -12,7 +12,7 @@ from io import BytesIO
 from lxml import etree
 
 
-def xml2dict(xml: Union[bytes, etree._Element]) -> Dict:
+def xml2dict(xml: Union[bytes, etree._Element], to_lower: bool = True) -> Dict:
     """
     Convert an lxml.etree node tree into a dict.
     """
@@ -26,7 +26,8 @@ def xml2dict(xml: Union[bytes, etree._Element]) -> Dict:
     for element in node.iterchildren():  # type: ignore
         # Remove namespace prefix
         key = element.tag.split('}')[1] if '}' in element.tag else element.tag
-        key = key.lower()
+        if to_lower:
+            key = key.lower()
 
         # Process element as tree element if the inner XML contains non-whitespace content
         if element.text and element.text.strip():
