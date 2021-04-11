@@ -7,6 +7,7 @@ Released under the terms of the BSD 3-Clause license.
 
 
 from importlib.util import find_spec
+from typing import Optional
 
 if find_spec("requests"):
     import requests
@@ -89,7 +90,7 @@ if find_spec("aiohttp"):
 
     class AsyncMixin:
         @property
-        def session(self) -> aiohttp.ClientSession:
+        def session(self) -> Optional[aiohttp.ClientSession]:
             """
             :getter: gets the aiohttp session
             :rtype: requests.Session
@@ -100,7 +101,7 @@ if find_spec("aiohttp"):
             return self._session
 
         @session.setter
-        def session(self, val: aiohttp.ClientSession):
+        def session(self, val: Optional[aiohttp.ClientSession]):
             self._session = val
 
         async def start_session(self):

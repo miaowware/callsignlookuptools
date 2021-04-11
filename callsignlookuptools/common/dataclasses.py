@@ -13,7 +13,7 @@ from datetime import datetime
 from pydantic import BaseModel
 from gridtools import LatLong, Grid
 
-from .enums import DataSource, Continent, CallsignType, LicenseClass, GeoLocSource
+from .enums import DataSource, Continent, CallsignType, LicenseClass, GeoLocSource, QslStatus
 
 
 @dataclass
@@ -69,10 +69,10 @@ class Trustee:
 class Qsl:
     info: Optional[str] = None
     bureau_info: Optional[str] = None
-    eqsl: Optional[bool] = None
-    lotw: Optional[bool] = None
-    mail: Optional[bool] = None
-    bureau: Optional[bool] = None
+    eqsl: QslStatus = QslStatus.UNKNOWN
+    lotw: QslStatus = QslStatus.UNKNOWN
+    mail: QslStatus = QslStatus.UNKNOWN
+    bureau: QslStatus = QslStatus.UNKNOWN
 
 
 @dataclass
@@ -158,7 +158,7 @@ class CallsignData:
     username: Optional[str] = None
     url: Optional[str] = None
     page_views: Optional[int] = None
-    db_serial: Optional[int] = None
+    db_serial: Optional[str] = None
     bio: Optional[Bio] = None
     image: Optional[Image] = None
     social_media: Optional[SocialMedia] = None
