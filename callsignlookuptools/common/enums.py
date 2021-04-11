@@ -51,10 +51,16 @@ class LicenseClass(Enum):
 
 class GeoLocSource(Enum):
     """Describes where the lat/long data in a :class:`QrzCallsignData` object comes from"""
-    USER = "User"
-    GEOCODE = "Geocode"
-    GRID = "Grid"
-    ZIP = "Zip Code"
-    STATE = "State"
-    DXCC = "DXCC"
-    NONE = "None"
+    USER = "user"
+    GEOCODE = "geocode"
+    GRID = "grid"
+    ZIP = "zip"
+    STATE = "state"
+    DXCC = "dxcc"
+    NONE = "none"
+
+
+class QslStatus(Enum):
+    YES = True
+    NO = False
+    UNKNOWN = None

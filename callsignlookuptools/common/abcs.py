@@ -34,7 +34,7 @@ class LookupAbc(ABC):
         pass
 
     @abstractmethod
-    def _process_search(self, resp: bytes) -> CallsignData:
+    def _process_search(self, query: str, resp: bytes) -> CallsignData:
         pass
 
     @abstractmethod
