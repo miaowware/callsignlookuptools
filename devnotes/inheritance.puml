@@ -109,6 +109,27 @@ namespace qrz {
     }
 }
 
+namespace callook {
+    namespace callook {
+        class CallookClientAbc {
+            + search()
+            - _do_query()
+        }
+    }
+    namespace callookasync {
+        class CallookAsyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+    namespace callooksync {
+        class CallookSyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+}
+
 qrz.qrz.QrzClientAbc <|-- qrz.qrzasync.QrzAsyncClient
 common.mixins.AsyncMixin <|-- qrz.qrzasync.QrzAsyncClient
 common.mixins.AsyncXmlAuthMixin <|-- qrz.qrzasync.QrzAsyncClient
@@ -119,8 +140,17 @@ common.mixins.SyncXmlAuthMixin <|-- qrz.qrzsync.QrzSyncClient
 
 common.abcs.LookupClientAbc <|-- qrz.qrz.QrzClientAbc
 
+callook.callook.CallookClientAbc <|-- callook.callookasync.CallookAsyncClient
+common.mixins.AsyncMixin <|-- callook.callookasync.CallookAsyncClient
+
+callook.callook.CallookClientAbc <|-- callook.callooksync.CallookSyncClient
+common.mixins.SyncMixin <|-- callook.callooksync.CallookSyncClient
+
+common.abcs.LookupClientAbc <|-- callook.callook.CallookClientAbc
+
 common.abcs.AuthMixinAbc <|-- common.mixins.AsyncXmlAuthMixin
 common.abcs.AuthMixinAbc <|-- common.mixins.SyncXmlAuthMixin
+
 
 hide empty members
 

@@ -37,16 +37,17 @@ For most data sources, these classes should only require two methods to be defin
 
 This UML diagram shows the basic structure of inheritance for a single lookup source.
 
-![A simplified diagram of class inheritance](./cltinheritancesimple.svg)
+<img alt="A simplified diagram of class inheritance" src="./cltinheritancesimple.svg" style="background: white" />
 
 ### Complete
 
 This UML diagram shows the structure of inheritance for a single lookup source, including properties, methods, and the files/modules each class is in.
+It also includes a second lookup source (callook) to demonstrate how not all lookup sources need all mixins.
 
-![A complete diagram of class inheritance](./cltinheritance.svg)
+<img alt="A complete diagram of class inheritance" src="./cltinheritance.svg" style="background: white" />
 
-> *Note: these UML class diagrams are generated with [plantUML]() from [inheritance.puml](./inheritance.puml).
-> One of the easiest ways to regenerate the diagrams after editing is using the [plantUML VS Code plugin]().
+> *Note: these UML class diagrams are generated with [plantUML](https://plantuml.com/) from [inheritance.puml](./inheritance.puml).
+> One of the easiest ways to regenerate the diagrams after editing is using the [plantUML VS Code extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml).
 > Make sure you set the output format to `svg` and in the same directory, e.g. with these VS Code settings:*
 
 ```json
