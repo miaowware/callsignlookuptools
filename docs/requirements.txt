@@ -1,5 +1,7 @@
 sphinx
 sphinx-autobuild
 sphinxcontrib-fulltoc
+sphinx_toolbox
+enum_tools
 -e git+https://github.com/miaowware/miaowware-sphinx-theme.git#egg=miaowware_sphinx_theme
 -r ../requirements.txt

@@ -6,7 +6,7 @@
 
 ## Installation
 
-`callsignlookuptools` requires Python 3.8 at minimum.
+`callsignlookuptools` requires Python 3.9 at minimum.
 
 ```sh
 # synchronous requests only

@@ -17,7 +17,7 @@ A QRZ.com and callook.info API interface in Python with sync and async support.
 Installation
 ============
 
-``callsignlookuptools`` requires Python 3.8 at minimum. Install by running:
+``callsignlookuptools`` requires Python 3.9 at minimum. Install by running:
 
 .. code-block:: sh
 
