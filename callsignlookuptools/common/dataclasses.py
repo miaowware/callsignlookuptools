@@ -24,6 +24,15 @@ class Dxcc:
     #: entity name
     name: Optional[str] = None
 
+    def __str__(self) -> str:
+        if self.name and self.id:
+            return self.name + f" ({self.id})"
+        elif self.name:
+            return self.name
+        elif self.id:
+            return str(self.id)
+        return ""
+
 
 @dataclass
 class Address:
@@ -47,6 +56,21 @@ class Address:
     #: dxcc entity code for the mailing address country
     country_code: Optional[int] = None
 
+    def __str__(self) -> str:
+        # attn
+        # line1
+        # line2
+        # line3
+        # city, state zip (= locale)
+        # country
+        locale = self.city if self.city else ""
+        locale += ", " + self.state if self.state else ""
+        locale += " " + self.zip if self.zip else ""
+        locale = locale.strip()
+
+        addr = [self.attn, self.line1, self.line2, self.line3, locale, self.country]
+        return "\n".join([ln for ln in addr if ln is not None])
+
 
 @dataclass
 class Name:
@@ -57,8 +81,34 @@ class Name:
     name: Optional[str] = None
     #: A different or shortened name used on the air
     nickname: Optional[str] = None
-    #: Combined full name and nickname in the format used by QRZ. This fortmat is subject to change.
+    #: Combined full name and nickname in the format used by QRZ. This format is subject to change.
     formatted_name: Optional[str] = None
+
+    def __str__(self) -> str:
+        if self.formatted_name:
+            return self.formatted_name
+        # only first
+        if self.first and not self.name and not self.nickname:
+            return self.first
+        # only name
+        elif not self.first and self.name and not self.nickname:
+            return self.name
+        # only nickname
+        elif not self.first and not self.name and self.nickname:
+            return self.nickname
+        # first + name
+        elif self.first and self.name and not self.nickname:
+            return self.first + " " + self.name
+        # first + nickname
+        elif self.first and not self.name and self.nickname:
+            return self.first + ' "' + self.nickname + '"'
+        # name + nickname
+        elif not self.first and self.name and self.nickname:
+            return '"' + self.nickname + '" ' + self.name
+        # all
+        elif self.first and self.name and self.nickname:
+            return self.first + ' "' + self.nickname + '" ' + self.name
+        return ""
 
 
 @dataclass
@@ -68,6 +118,15 @@ class Trustee:
     callsign: Optional[str] = None
     #: trustee name
     name: Optional[str] = None
+
+    def __str__(self) -> str:
+        if self.callsign and self.name:
+            return self.name + " (" + self.callsign + ")"
+        elif self.callsign:
+            return self.callsign
+        elif self.name:
+            return self.name
+        return ""
 
 
 @dataclass
@@ -85,6 +144,20 @@ class Qsl:
     mail: QslStatus = QslStatus.UNKNOWN
     #: whether bureau QSL is accepted
     bureau: QslStatus = QslStatus.UNKNOWN
+
+    def __str__(self) -> str:
+        out = []
+        if self.info:
+            out.append(self.info)
+        if self.bureau_info:
+            out.append(self.bureau_info)
+        out += [
+            "Mail: " + self.mail.name.title(),
+            "Bureau: " + self.bureau.name.title(),
+            "LotW: " + self.lotw.name.title(),
+            "eQSL: " + self.eqsl.name.title(),
+        ]
+        return "\n".join(out)
 
 
 @dataclass

@@ -173,7 +173,7 @@ class QrzClientAbc(abcs.LookupAbc, ABC):
         calldata.address = dataclasses.Address(
             attn=model_data.attn,
             line1=model_data.addr1,
-            line2=model_data.addr2,
+            city=model_data.addr2,
             state=model_data.state,
             zip=model_data.zip,
             country=model_data.country,
