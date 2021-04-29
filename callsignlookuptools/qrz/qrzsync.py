@@ -16,7 +16,7 @@ from .qrz import QrzClientAbc
 
 
 class QrzSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzClientAbc):
-    """A synchronous QRZ API client
+    """Synchronous QRZ API client
 
     :param username: QRZ username
     :type username: str

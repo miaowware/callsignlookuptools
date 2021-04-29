@@ -2,7 +2,7 @@
 
 CallsignLookupTools (CLT) is designed to be extremely modular, support sync and async,
 and require minimal additional code when adding a new lookup source.
-This comes at the cost of making the inheritance tree is fairly complex.
+This comes at the cost of making the inheritance tree fairly complex.
 
 ## Abstract Base Classes
 
@@ -47,8 +47,8 @@ It also includes a second lookup source (callook) to demonstrate how not all loo
 <img alt="A complete diagram of class inheritance" src="./cltinheritance.svg" style="background: white" />
 
 > *Note: these UML class diagrams are generated with [plantUML](https://plantuml.com/) from [inheritance.puml](./inheritance.puml).
-> One of the easiest ways to regenerate the diagrams after editing is using the [plantUML VS Code extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml).
-> Make sure you set the output format to `svg` and in the same directory, e.g. with these VS Code settings:*
+> One of the easiest ways to regenerate the diagrams after editing is using the [plantUML VSCode extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml).
+> Make sure you set the output format to `svg` and in the same directory, e.g. with these VSCode settings:*
 
 ```json
 "plantuml.exportFormat": "svg",

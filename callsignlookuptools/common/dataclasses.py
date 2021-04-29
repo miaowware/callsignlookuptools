@@ -223,7 +223,7 @@ class CallsignData:
     """Represents the data for a callsign retrieved from a lookup service"""
     #: the callsign searched for
     query: str
-    #: the raw data, as parsed by pydantic from the API response. Probably not needed.
+    #: the raw data, as parsed by pydantic from the API response. Probably not needed for most use cases.
     raw_data: BaseModel
     #: the lookup service the data comes from
     data_source: DataSource
