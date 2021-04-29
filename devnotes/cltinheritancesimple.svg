@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="329px" preserveAspectRatio="none" style="width:757px;height:329px;" version="1.1" viewBox="0 0 757 329" width="757px" zoomAndPan="magnify"><defs><filter height="300%" id="fu6u0e2cyh8m8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e71a1a808eadffeacec121a1330a7ac7]
+class LookupClientAbc--><rect codeLine="2" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="LookupClientAbc" style="stroke:#A80036;stroke-width:1.5;" width="136" x="301" y="99"/><ellipse cx="316" cy="115" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M316.1094,110.3438 L314.9531,115.4219 L317.2813,115.4219 L316.1094,110.3438 Z M314.625,108.1094 L317.6094,108.1094 L320.9688,120.5 L318.5156,120.5 L317.75,117.4375 L314.4688,117.4375 L313.7188,120.5 L311.2813,120.5 L314.625,108.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="104" x="330" y="119.1543">LookupClientAbc</text><!--MD5=[cd4d53af68da8e742a91f8118a1be057]
+class AuthMixinAbc--><rect codeLine="3" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="AuthMixinAbc" style="stroke:#A80036;stroke-width:1.5;" width="115" x="311.5" y="7"/><ellipse cx="326.5" cy="23" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M326.6094,18.3438 L325.4531,23.4219 L327.7813,23.4219 L326.6094,18.3438 Z M325.125,16.1094 L328.1094,16.1094 L331.4688,28.5 L329.0156,28.5 L328.25,25.4375 L324.9688,25.4375 L324.2188,28.5 L321.7813,28.5 L325.125,16.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="83" x="340.5" y="27.1543">AuthMixinAbc</text><!--MD5=[0a8a31f7bac35ca12b44d29865950ac1]
+class AsyncMixin--><rect codeLine="5" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="AsyncMixin" style="stroke:#A80036;stroke-width:1.5;" width="99" x="458.5" y="191"/><ellipse cx="473.5" cy="207" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M469.4219,202.7656 L469.4219,200.6094 L476.8125,200.6094 L476.8125,202.7656 L474.3438,202.7656 L474.3438,210.8438 L476.8125,210.8438 L476.8125,213 L469.4219,213 L469.4219,210.8438 L471.8906,210.8438 L471.8906,202.7656 L469.4219,202.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="67" x="487.5" y="211.1543">AsyncMixin</text><!--MD5=[6518b2f844429d2605cf7792d292aba6]
+class AsyncXmlAuthMixin--><rect codeLine="6" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="AsyncXmlAuthMixin" style="stroke:#A80036;stroke-width:1.5;" width="150" x="593" y="191"/><ellipse cx="608" cy="207" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M603.9219,202.7656 L603.9219,200.6094 L611.3125,200.6094 L611.3125,202.7656 L608.8438,202.7656 L608.8438,210.8438 L611.3125,210.8438 L611.3125,213 L603.9219,213 L603.9219,210.8438 L606.3906,210.8438 L606.3906,202.7656 L603.9219,202.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="118" x="622" y="211.1543">AsyncXmlAuthMixin</text><!--MD5=[3196fc1940a24743ea7d8c095cc2b636]
+class SyncXmlAuthMixin--><rect codeLine="7" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="SyncXmlAuthMixin" style="stroke:#A80036;stroke-width:1.5;" width="144" x="7" y="191"/><ellipse cx="22" cy="207" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M17.9219,202.7656 L17.9219,200.6094 L25.3125,200.6094 L25.3125,202.7656 L22.8438,202.7656 L22.8438,210.8438 L25.3125,210.8438 L25.3125,213 L17.9219,213 L17.9219,210.8438 L20.3906,210.8438 L20.3906,202.7656 L17.9219,202.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="36" y="211.1543">SyncXmlAuthMixin</text><!--MD5=[13582962a8a6fd3a29724ada5555ae35]
+class SyncMixin--><rect codeLine="8" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="SyncMixin" style="stroke:#A80036;stroke-width:1.5;" width="93" x="186.5" y="191"/><ellipse cx="201.5" cy="207" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M197.4219,202.7656 L197.4219,200.6094 L204.8125,200.6094 L204.8125,202.7656 L202.3438,202.7656 L202.3438,210.8438 L204.8125,210.8438 L204.8125,213 L197.4219,213 L197.4219,210.8438 L199.8906,210.8438 L199.8906,202.7656 L197.4219,202.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="61" x="215.5" y="211.1543">SyncMixin</text><!--MD5=[2b6421922a15d121d70297063eb5dc2b]
+class QrzClientAbc--><rect codeLine="10" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="QrzClientAbc" style="stroke:#A80036;stroke-width:1.5;" width="109" x="314.5" y="191"/><ellipse cx="329.5" cy="207" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M329.6094,202.3438 L328.4531,207.4219 L330.7813,207.4219 L329.6094,202.3438 Z M328.125,200.1094 L331.1094,200.1094 L334.4688,212.5 L332.0156,212.5 L331.25,209.4375 L327.9688,209.4375 L327.2188,212.5 L324.7813,212.5 L328.125,200.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="77" x="343.5" y="211.1543">QrzClientAbc</text><!--MD5=[59d10a299e28eff8fd4e2dac142e0536]
+class QrzAsyncClient--><rect codeLine="12" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="QrzAsyncClient" style="stroke:#A80036;stroke-width:1.5;" width="122" x="447" y="283"/><ellipse cx="462" cy="299" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M464.9688,304.6406 Q464.3906,304.9375 463.75,305.0781 Q463.1094,305.2344 462.4063,305.2344 Q459.9063,305.2344 458.5781,303.5938 Q457.2656,301.9375 457.2656,298.8125 Q457.2656,295.6875 458.5781,294.0313 Q459.9063,292.375 462.4063,292.375 Q463.1094,292.375 463.75,292.5313 Q464.4063,292.6875 464.9688,292.9844 L464.9688,295.7031 Q464.3438,295.125 463.75,294.8594 Q463.1563,294.5781 462.5313,294.5781 Q461.1875,294.5781 460.5,295.6563 Q459.8125,296.7188 459.8125,298.8125 Q459.8125,300.9063 460.5,301.9844 Q461.1875,303.0469 462.5313,303.0469 Q463.1563,303.0469 463.75,302.7813 Q464.3438,302.5 464.9688,301.9219 L464.9688,304.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="476" y="303.1543">QrzAsyncClient</text><!--MD5=[a4026f8945e8aff88663052d43ea073f]
+class QrzSyncClient--><rect codeLine="13" fill="#FEFECE" filter="url(#fu6u0e2cyh8m8)" height="32" id="QrzSyncClient" style="stroke:#A80036;stroke-width:1.5;" width="115" x="175.5" y="283"/><ellipse cx="190.5" cy="299" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M193.4688,304.6406 Q192.8906,304.9375 192.25,305.0781 Q191.6094,305.2344 190.9063,305.2344 Q188.4063,305.2344 187.0781,303.5938 Q185.7656,301.9375 185.7656,298.8125 Q185.7656,295.6875 187.0781,294.0313 Q188.4063,292.375 190.9063,292.375 Q191.6094,292.375 192.25,292.5313 Q192.9063,292.6875 193.4688,292.9844 L193.4688,295.7031 Q192.8438,295.125 192.25,294.8594 Q191.6563,294.5781 191.0313,294.5781 Q189.6875,294.5781 189,295.6563 Q188.3125,296.7188 188.3125,298.8125 Q188.3125,300.9063 189,301.9844 Q189.6875,303.0469 191.0313,303.0469 Q191.6563,303.0469 192.25,302.7813 Q192.8438,302.5 193.4688,301.9219 L193.4688,304.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="204.5" y="303.1543">QrzSyncClient</text><!--MD5=[0966a2a02f9df3ae4ad0779d6b56a5f2]
+reverse link QrzClientAbc to QrzAsyncClient--><path codeLine="15" d="M409.19,234.02 C433.67,249.87 464.09,269.57 484.66,282.89 " fill="none" id="QrzClientAbc-backto-QrzAsyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="405.25,239.81,392.27,223.06,412.86,228.06,405.25,239.81" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c9e05e56e3c7c9bba5e3e5beb5737b10]
+reverse link AsyncMixin to QrzAsyncClient--><path codeLine="16" d="M508,243.61 C508,257.31 508,272.22 508,282.96 " fill="none" id="AsyncMixin-backto-QrzAsyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="501,243.27,508,223.27,515,243.27,501,243.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1590e2526b9c13bf3a04f49aa69c5507]
+reverse link AsyncXmlAuthMixin to QrzAsyncClient--><path codeLine="17" d="M623.79,232.87 C595.28,248.91 559.12,269.24 534.87,282.89 " fill="none" id="AsyncXmlAuthMixin-backto-QrzAsyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="620.36,226.77,641.22,223.06,627.22,238.97,620.36,226.77" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d948d72bdd54a3c663a38a93fb170473]
+reverse link QrzClientAbc to QrzSyncClient--><path codeLine="19" d="M329.33,234.25 C305.44,250.06 275.87,269.63 255.84,282.89 " fill="none" id="QrzClientAbc-backto-QrzSyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="325.69,228.26,346.24,223.06,333.42,239.94,325.69,228.26" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[35940ccdab3d40035c6ec33beb4cf355]
+reverse link SyncMixin to QrzSyncClient--><path codeLine="20" d="M233,243.61 C233,257.31 233,272.22 233,282.96 " fill="none" id="SyncMixin-backto-QrzSyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="226,243.27,233,223.27,240,243.27,226,243.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ff54884c6d595b0c9137693233d1a9b2]
+reverse link SyncXmlAuthMixin to QrzSyncClient--><path codeLine="21" d="M122.34,233.33 C149.66,249.29 184.02,269.37 207.14,282.89 " fill="none" id="SyncXmlAuthMixin-backto-QrzSyncClient" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="118.51,239.2,104.78,223.06,125.58,227.11,118.51,239.2" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3e2bc5d7f12ee47b67ad9c5ee324058f]
+reverse link LookupClientAbc to QrzClientAbc--><path codeLine="23" d="M369,151.61 C369,165.31 369,180.22 369,190.96 " fill="none" id="LookupClientAbc-backto-QrzClientAbc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="362,151.27,369,131.27,376,151.27,362,151.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9f12da583bc2850bf2adaa58f40038b5]
+reverse link AuthMixinAbc to AsyncXmlAuthMixin--><path codeLine="25" d="M411.13,49.64 C474.44,88.18 592.14,159.82 643.25,190.93 " fill="none" id="AuthMixinAbc-backto-AsyncXmlAuthMixin" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="407.17,55.43,393.72,39.05,414.45,43.47,407.17,55.43" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d4b9e3c9879e458dee102c2612ca3175]
+reverse link AuthMixinAbc to SyncXmlAuthMixin--><path codeLine="26" d="M327.46,50.07 C265.87,88.72 152.31,159.99 102.95,190.97 " fill="none" id="AuthMixinAbc-backto-SyncXmlAuthMixin" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="324.11,43.91,344.77,39.2,331.55,55.76,324.11,43.91" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9d8005244f4f7f211cfc657ade34ca16]
+link SyncXmlAuthMixin to SyncMixin--><!--MD5=[69510e3fca9140dc890f64f4b77e99b6]
+link SyncMixin to QrzClientAbc--><!--MD5=[aa6912ec47a9b07e0effc7e2607d7a9a]
+link QrzClientAbc to AsyncMixin--><!--MD5=[8924706e4261832edc7d2a43e761a1a2]
+link AsyncMixin to AsyncXmlAuthMixin--><!--MD5=[586e766774820104eb4cff01a1b02a49]
+link AuthMixinAbc to LookupClientAbc--><!--MD5=[dd408e114641f3436b6543f98eaed492]
+@startuml cltinheritancesimple
+
+abstract LookupClientAbc
+abstract AuthMixinAbc
+
+interface AsyncMixin
+interface AsyncXmlAuthMixin
+interface SyncXmlAuthMixin
+interface SyncMixin
+
+abstract QrzClientAbc
+
+class QrzAsyncClient
+class QrzSyncClient
+
+QrzClientAbc <|- - QrzAsyncClient
+AsyncMixin <|- - QrzAsyncClient
+AsyncXmlAuthMixin <|- - QrzAsyncClient
+
+QrzClientAbc <|- - QrzSyncClient
+SyncMixin <|- - QrzSyncClient
+SyncXmlAuthMixin <|- - QrzSyncClient
+
+LookupClientAbc <|- - QrzClientAbc
+
+AuthMixinAbc <|- - AsyncXmlAuthMixin
+AuthMixinAbc <|- - SyncXmlAuthMixin
+
+SyncMixin -left[hidden]- SyncXmlAuthMixin
+QrzClientAbc -left[hidden]- SyncMixin
+AsyncMixin -left[hidden]- QrzClientAbc
+AsyncXmlAuthMixin -left[hidden]- AsyncMixin
+
+AuthMixinAbc -down[hidden]- LookupClientAbc
+
+hide empty members
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 05:25:05 EST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -13,9 +13,7 @@ from lxml import etree
 
 
 def xml2dict(xml: Union[bytes, etree._Element], to_lower: bool = True) -> Dict:
-    """
-    Convert an lxml.etree node tree into a dict.
-    """
+    """Convert an lxml.etree node tree into a dict"""
     if isinstance(xml, bytes):
         node = etree.parse(BytesIO(xml)).getroot()
     else:

@@ -1,0 +1,157 @@
+@startuml cltinheritancesimple
+
+abstract LookupClientAbc
+abstract AuthMixinAbc
+
+interface AsyncMixin
+interface AsyncXmlAuthMixin
+interface SyncXmlAuthMixin
+interface SyncMixin
+
+abstract QrzClientAbc
+
+class QrzAsyncClient
+class QrzSyncClient
+
+QrzClientAbc <|-- QrzAsyncClient
+AsyncMixin <|-- QrzAsyncClient
+AsyncXmlAuthMixin <|-- QrzAsyncClient
+
+QrzClientAbc <|-- QrzSyncClient
+SyncMixin <|-- QrzSyncClient
+SyncXmlAuthMixin <|-- QrzSyncClient
+
+LookupClientAbc <|-- QrzClientAbc
+
+AuthMixinAbc <|-- AsyncXmlAuthMixin
+AuthMixinAbc <|-- SyncXmlAuthMixin
+
+SyncMixin -left[hidden]- SyncXmlAuthMixin
+QrzClientAbc -left[hidden]- SyncMixin
+AsyncMixin -left[hidden]- QrzClientAbc
+AsyncXmlAuthMixin -left[hidden]- AsyncMixin
+
+AuthMixinAbc -down[hidden]- LookupClientAbc
+
+hide empty members
+
+@enduml
+
+@startuml cltinheritance
+
+namespace common {
+    namespace abcs {
+        abstract LookupClientAbc {
+            + {abstract} session
+            + {abstract} search()
+            - {abstract} _process_search()
+            - {abstract} _do_query()
+        }
+
+        abstract AuthMixinAbc {
+            + username
+            + password
+            + useragent
+            + session_key
+            - {abstract} _login()
+            - {abstract} _process_login()
+            - {abstract} _check_session()
+            - {abstract} _process_check_session()
+        }
+    }
+
+    namespace mixins {
+        interface AsyncMixin {
+            + session
+        }
+
+        interface AsyncXmlAuthMixin {
+            - _login()
+            - _check_session()
+            - _process_login()
+            - _process_check_session()
+        }
+
+        interface SyncMixin {
+            + session
+        }
+
+        interface SyncXmlAuthMixin {
+            - _login()
+            - _check_session()
+            - _process_login()
+            - _process_check_login()
+        }
+    }
+}
+
+namespace qrz {
+    namespace qrz {
+        abstract QrzClientAbc {
+            + {abstract} search()
+            - {abstract} _do_query()
+            - _process_search()
+        }
+    }
+
+    namespace qrzasync {
+        class QrzAsyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+
+    namespace qrzsync {
+        class QrzSyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+}
+
+namespace callook {
+    namespace callook {
+        class CallookClientAbc {
+            + search()
+            - _do_query()
+        }
+    }
+    namespace callookasync {
+        class CallookAsyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+    namespace callooksync {
+        class CallookSyncClient {
+            + search()
+            - _do_query()
+        }
+    }
+}
+
+qrz.qrz.QrzClientAbc <|-- qrz.qrzasync.QrzAsyncClient
+common.mixins.AsyncMixin <|-- qrz.qrzasync.QrzAsyncClient
+common.mixins.AsyncXmlAuthMixin <|-- qrz.qrzasync.QrzAsyncClient
+
+qrz.qrz.QrzClientAbc <|-- qrz.qrzsync.QrzSyncClient
+common.mixins.SyncMixin <|-- qrz.qrzsync.QrzSyncClient
+common.mixins.SyncXmlAuthMixin <|-- qrz.qrzsync.QrzSyncClient
+
+common.abcs.LookupClientAbc <|-- qrz.qrz.QrzClientAbc
+
+callook.callook.CallookClientAbc <|-- callook.callookasync.CallookAsyncClient
+common.mixins.AsyncMixin <|-- callook.callookasync.CallookAsyncClient
+
+callook.callook.CallookClientAbc <|-- callook.callooksync.CallookSyncClient
+common.mixins.SyncMixin <|-- callook.callooksync.CallookSyncClient
+
+common.abcs.LookupClientAbc <|-- callook.callook.CallookClientAbc
+
+common.abcs.AuthMixinAbc <|-- common.mixins.AsyncXmlAuthMixin
+common.abcs.AuthMixinAbc <|-- common.mixins.SyncXmlAuthMixin
+
+
+hide empty members
+
+@enduml

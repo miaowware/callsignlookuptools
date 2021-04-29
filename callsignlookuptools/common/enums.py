@@ -10,6 +10,7 @@ from enum import Enum
 
 
 class DataSource(Enum):
+    """Describes the callsign data lookup source"""
     CALLOOK = "callook.info"
     HAMQTH = "hamqth.com"
     QRZ = "qrz.com"
@@ -61,6 +62,7 @@ class GeoLocSource(Enum):
 
 
 class QslStatus(Enum):
+    """Describes whether a type of QSL is accepted"""
     YES = True
     NO = False
     UNKNOWN = None

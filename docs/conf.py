@@ -35,7 +35,8 @@ release = '0.0.0'
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinxcontrib.fulltoc"
+    "sphinxcontrib.fulltoc",
+    "enum_tools.autoenum",
 ]
 
 # Add any paths that contain templates here, relative to this directory.

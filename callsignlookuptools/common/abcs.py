@@ -13,8 +13,6 @@ from .dataclasses import CallsignData
 
 class LookupAbc(ABC):
     """The base class for all lookup classes **This should not be used directly**."""
-    _base_url: str
-
     @abstractmethod
     def __init__(self):
         pass
@@ -30,7 +28,15 @@ class LookupAbc(ABC):
         pass
 
     @abstractmethod
-    def search(self, callsign):
+    def search(self, callsign: str) -> CallsignData:
+        """Search for a callsign
+
+        :param callsign: the callsign to look up
+        :type callsign: str
+        :return: the callsign data from the lookup service
+        :rtype: :class:`CallsignData`
+        :raises: :class:`common.exceptions.CallsignLookupError` on network or parsing error
+        """
         pass
 
     @abstractmethod
@@ -44,11 +50,6 @@ class LookupAbc(ABC):
 
 class AuthMixinAbc(ABC):
     """adds common properties for authenticated lookups"""
-    _username: str
-    _password: str
-    _useragent: str
-    _session_key: str
-
     @property
     def username(self) -> str:
         """

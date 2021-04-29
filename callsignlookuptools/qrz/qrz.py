@@ -115,7 +115,7 @@ class QrzDataModel(BaseModel):
         arbitrary_types_allowed = True
 
 
-class QrzAbc(abcs.LookupAbc, ABC):
+class QrzClientAbc(abcs.LookupAbc, ABC):
     """The base class for QrzSync and QrzAsync. **This should not be used directly.**"""
     _base_url = "https://xmldata.qrz.com/xml/current/?"
 
@@ -128,13 +128,6 @@ class QrzAbc(abcs.LookupAbc, ABC):
 
     @abstractmethod
     def search(self, callsign: str) -> dataclasses.CallsignData:
-        """Gets QRZ data for a callsign.
-
-        :param callsign: the callsign to search for
-        :type callsign: str
-        :return: the QRZ data for the callsign
-        :rtype: QrzCallsignData
-        """
         pass
 
     @abstractmethod
@@ -180,7 +173,7 @@ class QrzAbc(abcs.LookupAbc, ABC):
         calldata.address = dataclasses.Address(
             attn=model_data.attn,
             line1=model_data.addr1,
-            line2=model_data.addr2,
+            city=model_data.addr2,
             state=model_data.state,
             zip=model_data.zip,
             country=model_data.country,

@@ -13,11 +13,11 @@ import aiohttp
 
 from ..__info__ import __version__
 from ..common import mixins, dataclasses, exceptions
-from .qrz import QrzAbc
+from .qrz import QrzClientAbc
 
 
-class QrzAsync(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzAbc):
-    """The asynchronous QRZ API object
+class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
+    """Asynchronous QRZ API client
 
     :param username: QRZ username
     :type username: str

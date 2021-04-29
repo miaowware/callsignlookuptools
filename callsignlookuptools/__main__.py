@@ -12,7 +12,7 @@ from dataclasses import asdict
 import argparse
 from getpass import getpass
 
-from callsignlookuptools import QrzSync, CallsignData, CallsignLookupError, __version__
+from callsignlookuptools import QrzSyncClient, CallsignData, CallsignLookupError, __version__
 from callsignlookuptools.common.enums import DataSource
 
 try:
@@ -91,7 +91,7 @@ if args.pretty:
 
 if args.qrz:
     source = DataSource.QRZ
-    lookup = QrzSync
+    lookup = QrzSyncClient
 # elif args.x:
 #     source = DataSource.x
 #     lookup = xSync

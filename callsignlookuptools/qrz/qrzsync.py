@@ -12,11 +12,11 @@ import requests
 
 from ..__info__ import __version__
 from ..common import mixins, dataclasses, exceptions
-from .qrz import QrzAbc
+from .qrz import QrzClientAbc
 
 
-class QrzSync(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzAbc):
-    """The synchronous QRZ API object
+class QrzSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzClientAbc):
+    """Synchronous QRZ API client
 
     :param username: QRZ username
     :type username: str
