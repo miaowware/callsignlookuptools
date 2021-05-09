@@ -64,12 +64,12 @@ class Address:
         # city, state zip (= locale)
         # country
         locale = self.city if self.city else ""
-        locale += ", " + self.state if self.state else ""
-        locale += " " + self.zip if self.zip else ""
+        locale += (", " if self.city and (self.state or self.zip) else "") + (self.state if self.state else "")
+        locale += (" " if self.state else "") + (self.zip if self.zip else "")
         locale = locale.strip()
 
         addr = [self.attn, self.line1, self.line2, self.line3, locale, self.country]
-        return "\n".join([ln for ln in addr if ln is not None])
+        return "\n".join([ln for ln in addr if ln])
 
 
 @dataclass

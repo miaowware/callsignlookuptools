@@ -31,7 +31,7 @@ def xml2dict(xml: Union[bytes, etree._Element], to_lower: bool = True) -> Dict:
         if element.text and element.text.strip():
             value = element.text
         else:
-            value = xml2dict(element)
+            value = xml2dict(element, to_lower=to_lower)
         if key in result:
             if type(result[key]) is list:
                 result[key].append(value)
