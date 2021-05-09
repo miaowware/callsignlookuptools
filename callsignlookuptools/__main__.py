@@ -11,8 +11,11 @@ from enum import Enum
 from dataclasses import asdict
 import argparse
 from getpass import getpass
+from typing import Type, Any
+from datetime import datetime
 
-from callsignlookuptools import QrzSyncClient, CallsignData, CallsignLookupError, __version__
+from callsignlookuptools import QrzSyncClient, CallookSyncClient
+from callsignlookuptools import CallsignData, CallsignLookupError, __version__
 from callsignlookuptools.common.enums import DataSource
 
 try:
@@ -34,10 +37,15 @@ def tabulate(data: CallsignData, colour: bool = False) -> str:
             continue
         if val is None:
             continue
+        if isinstance(val, datetime):
+            val = f"{val:%Y-%m-%d}"
         if isinstance(val, list) or isinstance(val, tuple):
             val = indent + indent.join(val)
-        if isinstance(val, Enum):
-            val = val.value
+        elif isinstance(val, Enum):
+            if val.value != "":
+                val = val.value
+            else:
+                continue
         elif isinstance(val, dict):
             if set(val.values()) == set([None]):
                 continue
@@ -66,6 +74,8 @@ parser.add_argument("--no-pretty", required=False, action="store_false", dest="p
                     help="Don't pretty-print output")
 parser.add_argument("-q", "--qrz", required=False, action="store_true", dest="qrz",
                     help="Use QRZ as a lookup source")
+parser.add_argument("-l", "--callook", required=False, action="store_true", dest="callook",
+                    help="Use Callook as a lookup source")
 parser.add_argument("-u", "--user", "--username", required=False, type=str, dest="username", action="store",
                     help="Data source username. Needed for QRZ. If needed and not specified, it will be asked for")
 parser.add_argument("-p", "--pass", "--password", required=False, type=str, dest="password", action="store",
@@ -89,15 +99,18 @@ if args.pretty:
     ec = Console(stderr=True, style="bold red")
 
 
+lookup: Type[Any]
+
 if args.qrz:
     source = DataSource.QRZ
     lookup = QrzSyncClient
-# elif args.x:
-#     source = DataSource.x
-#     lookup = xSync
+elif args.callook:
+    source = DataSource.CALLOOK
+    lookup = CallookSyncClient
 
 
 # if args.qrz or args.x ...:
+# auth sources
 if args.qrz:
     if args.username:
         username = args.username
@@ -110,8 +123,9 @@ if args.qrz:
         password = getpass(f"{source.value.capitalize()} Password: ")
 
     lookup_obj = lookup(username=username, password=password)
-# else:
-#     lookup_obj = lookup()
+# no auth sources
+else:
+    lookup_obj = lookup()
 
 
 if args.call:

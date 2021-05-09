@@ -14,3 +14,14 @@ QRZ
 .. autoclass:: QrzAsyncClient()
     :members:
     :inherited-members:
+
+Callook
+=======
+
+.. autoclass:: CallookSyncClient()
+    :members:
+    :inherited-members:
+
+.. autoclass:: CallookAsyncClient()
+    :members:
+    :inherited-members:

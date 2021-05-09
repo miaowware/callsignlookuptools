@@ -93,10 +93,10 @@ if find_spec("aiohttp"):
         def session(self) -> Optional[aiohttp.ClientSession]:
             """
             :getter: gets the aiohttp session
-            :rtype: requests.Session
+            :rtype: aiohttp.ClientSession
 
             :setter: sets the aiohttp session
-            :type: requests.Session
+            :type: aiohttp.ClientSession
             """
             return self._session
 
