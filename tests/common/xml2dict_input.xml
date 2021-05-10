@@ -1,0 +1,21 @@
+<QRZDatabase xmlns="http://xmldata.qrz.com" version="1.34">
+    <Callsign>
+        <call>W1AW</call>
+        <dxcc>291</dxcc>
+        <attn>JOSEPH P CARCIA III</attn>
+        <name>ARRL HQ OPERATORS CLUB</name>
+        <addr1>225 MAIN ST</addr1>
+        <addr2>NEWINGTON</addr2>
+        <MSA>3280</MSA>
+        <AreaCode>860</AreaCode>
+        <TimeZone>Eastern</TimeZone>
+        <GMTOffset>-5</GMTOffset>
+    </Callsign>
+    <Session>
+        <Key>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</Key>
+        <Count>3543</Count>
+        <SubExp>Fri Oct 15 17:21:54 2021</SubExp>
+        <GMTime>Wed Apr 28 02:24:54 2021</GMTime>
+        <Remark>cpu: 0.041s</Remark>
+    </Session>
+</QRZDatabase>
