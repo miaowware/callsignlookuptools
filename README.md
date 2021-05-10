@@ -1,6 +1,6 @@
 # callsignlookuptools
 
-[Callook.info](https://callook.info) API interface in Python
+An API interface for various ham radio callsign lookup sites in Python, including [QRZ](https://qrz.com) and [callook.info](https://callook.info)
 
 [![PyPI](https://img.shields.io/pypi/v/callsignlookuptools)](https://pypi.org/project/callsignlookuptools/) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/callsignlookuptools) ![PyPI - License](https://img.shields.io/pypi/l/callsignlookuptools) [![Documentation Status](https://readthedocs.org/projects/callsignlookuptools/badge/?version=latest)](https://callsignlookuptools.readthedocs.io/en/latest/?badge=latest)
 

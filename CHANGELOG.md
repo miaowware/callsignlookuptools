@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
+### Added
+- Support for QRZ lookup.
+- Support for Callook lookup.
+- Documentation.
+- Command-line interface.
 
 
 <!--
