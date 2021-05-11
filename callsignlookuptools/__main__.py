@@ -11,7 +11,6 @@ from enum import Enum
 from dataclasses import asdict
 import argparse
 from getpass import getpass
-from typing import Type, Any
 from datetime import datetime
 
 from callsignlookuptools import QrzSyncClient, CallookSyncClient
@@ -94,19 +93,22 @@ if not args.call:
     raise SystemExit(0)
 
 
+if not args.qrz and not args.callook:
+    print("No lookup source given")
+    raise SystemExit(0)
+
+
 if args.pretty:
     c = Console()
     ec = Console(stderr=True, style="bold red")
 
-
-lookup: Type[Any]
 
 if args.qrz:
     source = DataSource.QRZ
     lookup = QrzSyncClient
 elif args.callook:
     source = DataSource.CALLOOK
-    lookup = CallookSyncClient
+    lookup = CallookSyncClient  # type: ignore
 
 
 # if args.qrz or args.x ...:
@@ -124,8 +126,8 @@ if args.qrz:
 
     lookup_obj = lookup(username=username, password=password)
 # no auth sources
-else:
-    lookup_obj = lookup()
+elif args.callook:
+    lookup_obj = lookup()  # type: ignore
 
 
 if args.call:
