@@ -3,7 +3,23 @@ name: Lint and Test
 on: [push,pull_request]
 
 jobs:
+  precheck:
+    runs-on: ubuntu-20.04
+
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          # skip concurrent jobs if they are on the same thing
+          concurrent_skipping: 'same_content'
+          # never skip PR + manual/scheduled runs
+          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
+
   flake8:
+    needs: precheck
+    if: ${{ needs.precheck.outputs.should_skip != 'true' }}
     runs-on: ubuntu-20.04
 
     strategy:
@@ -29,6 +45,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   mypy:
+    needs: precheck
+    if: ${{ needs.precheck.outputs.should_skip != 'true' }}
     runs-on: ubuntu-20.04
 
     strategy:
@@ -51,6 +69,8 @@ jobs:
           mypy -p callsignlookuptools
 
   pytest:
+    needs: precheck
+    if: ${{ needs.precheck.outputs.should_skip != 'true' }}
     runs-on: ubuntu-20.04
 
     strategy:
