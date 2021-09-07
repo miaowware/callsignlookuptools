@@ -17,9 +17,11 @@ from .common.exceptions import CallsignLookupError  # noqa: F401
 
 if find_spec("requests"):
     from .qrz.qrzsync import QrzSyncClient  # noqa: F401
+    from .callook.callooksync import CallookSyncClient  # noqa: F401
     pass
 if find_spec("aiohttp"):
     from .qrz.qrzasync import QrzAsyncClient  # noqa: F401
+    from .callook.callookasync import CallookAsyncClient  # noqa: F401
     pass
 if not find_spec("requests") and not find_spec("aiohttp"):
     raise ModuleNotFoundError("At least one of requests or aiohttp needs to be installed to use callsignlookuptools")

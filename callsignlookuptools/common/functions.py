@@ -19,13 +19,15 @@ def xml2dict(xml: Union[bytes, etree._Element], to_lower: bool = True) -> Dict:
     else:
         node = xml
 
-    result = {}  # type: ignore
+    result: Dict = {}
 
-    for element in node.iterchildren():  # type: ignore
+    for element in node.iterchildren():
         # Remove namespace prefix
         key = element.tag.split('}')[1] if '}' in element.tag else element.tag
         if to_lower:
             key = key.lower()
+
+        value: Union[str, bytes, Dict]
 
         # Process element as tree element if the inner XML contains non-whitespace content
         if element.text and element.text.strip():

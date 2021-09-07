@@ -31,10 +31,27 @@ class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
     :type session: Optional[aiohttp.ClientSession]
     """
     def __init__(self, username: str, password: str, session_key: str = "",
-                 useragent: str = f"python-qrztools-v{__version__}",
+                 useragent: str = f"python-callsignlookuptools-v{__version__}",
                  session: Optional[aiohttp.ClientSession] = None):
         self._session = session
         super().__init__(username, password, session_key=session_key, useragent=useragent)
+
+    @classmethod
+    async def new(cls, username: str, password: str, session_key: str = "",
+                  useragent: str = f"python-callsignlookuptools-v{__version__}",
+                  session: Optional[aiohttp.ClientSession] = None) -> 'QrzAsyncClient':
+        """Creates a ``QrzAsyncClient`` object and automatically starts a session if not provided.
+
+        :param username: QRZ username
+        :param password: QRZ password
+        :param session_key: QRZ login session key
+        :param useragent: Useragent for QRZ
+        :param session: An aiohttp session to use for requests
+        """
+        obj = cls(username, password, session_key, useragent, session)
+        if obj.session is None:
+            await obj.start_session()
+        return obj
 
     async def search(self, callsign: str) -> dataclasses.CallsignData:  # type: ignore
         if not callsign.isalnum():
@@ -59,9 +76,11 @@ class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
         )
 
     async def _do_query(self, **query) -> bytes:  # type: ignore
-        if self._session is None:
-            await self.start_session()
-        async with self._session.get(self._base_url + urlencode(query)) as resp:  # type: ignore
-            if resp.status != 200:
-                raise exceptions.CallsignLookupError(f"Unable to connect to QRZ (HTTP Error {resp.status})")
-            return await resp.read()
+        if self._session is not None:
+            async with self._session.get(self._base_url + urlencode(query)) as resp:
+                if resp.status != 200:
+                    raise exceptions.CallsignLookupError(f"Unable to connect to QRZ (HTTP Error {resp.status})")
+                return await resp.read()
+        else:
+            raise exceptions.CallsignLookupError(("Session not initialised. "
+                                                  "Hint: Call `.start_session()` once or use the `new()` classmethod."))

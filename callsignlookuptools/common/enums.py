@@ -31,23 +31,23 @@ class Continent(Enum):
 
 class CallsignType(Enum):
     """Describes what kind of license the license holder has"""
-    CLUB = "Club"
-    MILITARY = "Military"
+    CLUB = "CLUB"
+    MILITARY = "MILITARY"
     RACES = "RACES"
-    RECREATION = "Military Recration"
-    PERSON = "Individual"
-    NONE = "None"
+    RECREATION = "RECREATION"
+    PERSON = "PERSON"
+    NONE = "NONE"
 
 
 class LicenseClass(Enum):
     """Describes the class of a license"""
-    NOVICE = "Novice"
-    TECHNICIAN = "Technician"
-    TECHNICIAN_PLUS = "Technician Plus"
-    GENERAL = "General"
-    ADVANCED = "Advanced"
-    EXTRA = "Amateur Extra"
-    NONE = "None"
+    NOVICE = "NOVICE"
+    TECHNICIAN = "TECHNICIAN"
+    TECHNICIAN_PLUS = "TECHNICIAN PLUS"
+    GENERAL = "GENERAL"
+    ADVANCED = "ADVANCED"
+    EXTRA = "EXTRA"
+    NONE = ""
 
 
 class GeoLocSource(Enum):
@@ -66,3 +66,9 @@ class QslStatus(Enum):
     YES = True
     NO = False
     UNKNOWN = None
+
+
+class CallookStatus(Enum):
+    VALID = "VALID"
+    INVALID = "INVALID"
+    UPDATING = "UPDATING"

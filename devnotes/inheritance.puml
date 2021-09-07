@@ -96,6 +96,7 @@ namespace qrz {
 
     namespace qrzasync {
         class QrzAsyncClient {
+            + new()
             + search()
             - _do_query()
         }
@@ -118,6 +119,7 @@ namespace callook {
     }
     namespace callookasync {
         class CallookAsyncClient {
+            + new()
             + search()
             - _do_query()
         }

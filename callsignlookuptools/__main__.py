@@ -11,8 +11,11 @@ from enum import Enum
 from dataclasses import asdict
 import argparse
 from getpass import getpass
+from datetime import datetime
+from typing import Callable
 
-from callsignlookuptools import QrzSyncClient, CallsignData, CallsignLookupError, __version__
+from callsignlookuptools import QrzSyncClient, CallookSyncClient
+from callsignlookuptools import CallsignData, CallsignLookupError, __version__
 from callsignlookuptools.common.enums import DataSource
 
 try:
@@ -34,10 +37,15 @@ def tabulate(data: CallsignData, colour: bool = False) -> str:
             continue
         if val is None:
             continue
+        if isinstance(val, datetime):
+            val = f"{val:%Y-%m-%d}"
         if isinstance(val, list) or isinstance(val, tuple):
             val = indent + indent.join(val)
-        if isinstance(val, Enum):
-            val = val.value
+        elif isinstance(val, Enum):
+            if val.value != "":
+                val = val.value
+            else:
+                continue
         elif isinstance(val, dict):
             if set(val.values()) == set([None]):
                 continue
@@ -64,8 +72,13 @@ parser.add_argument("-v", "--version", required=False, action="store_true", dest
                     help="Show the version of this program and exit")
 parser.add_argument("--no-pretty", required=False, action="store_false", dest="pretty",
                     help="Don't pretty-print output")
-parser.add_argument("-q", "--qrz", required=False, action="store_true", dest="qrz",
-                    help="Use QRZ as a lookup source")
+
+src_group = parser.add_mutually_exclusive_group(required=False)
+src_group.add_argument("-q", "--qrz", action="store_const", const=DataSource.QRZ, dest="src",
+                       help="Use QRZ as a lookup source")
+src_group.add_argument("-l", "--callook", action="store_const", const=DataSource.CALLOOK, dest="src",
+                       help="Use Callook as a lookup source")
+
 parser.add_argument("-u", "--user", "--username", required=False, type=str, dest="username", action="store",
                     help="Data source username. Needed for QRZ. If needed and not specified, it will be asked for")
 parser.add_argument("-p", "--pass", "--password", required=False, type=str, dest="password", action="store",
@@ -79,26 +92,23 @@ if args.version:
     raise SystemExit(0)
 
 
-if not args.call:
-    print("No callsign query given")
-    raise SystemExit(0)
-
-
 if args.pretty:
     c = Console()
     ec = Console(stderr=True, style="bold red")
 
 
-if args.qrz:
-    source = DataSource.QRZ
-    lookup = QrzSyncClient
-# elif args.x:
-#     source = DataSource.x
-#     lookup = xSync
+lookup_classes = {
+    DataSource.QRZ: QrzSyncClient,
+    DataSource.CALLOOK: CallookSyncClient,
+}
 
 
-# if args.qrz or args.x ...:
-if args.qrz:
+source = args.src
+lookup: Callable = lookup_classes[args.src]
+
+
+# auth sources
+if source == DataSource.QRZ:
     if args.username:
         username = args.username
     else:
@@ -110,8 +120,9 @@ if args.qrz:
         password = getpass(f"{source.value.capitalize()} Password: ")
 
     lookup_obj = lookup(username=username, password=password)
-# else:
-#     lookup_obj = lookup()
+# no auth sources
+elif args.callook:
+    lookup_obj = lookup()
 
 
 if args.call:
@@ -142,3 +153,6 @@ if args.call:
         else:
             print(f"\n{source.value.capitalize()} Data for {call}:")
             print(e)
+else:
+    print("No callsign query given")
+    raise SystemExit(1)

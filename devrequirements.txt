@@ -3,5 +3,6 @@ flake8
 mypy
 twine
 lxml-stubs
+types-requests
 -r requirements.txt
 -r docs/requirements.txt
