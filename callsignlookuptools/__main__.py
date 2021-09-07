@@ -73,7 +73,7 @@ parser.add_argument("-v", "--version", required=False, action="store_true", dest
 parser.add_argument("--no-pretty", required=False, action="store_false", dest="pretty",
                     help="Don't pretty-print output")
 
-src_group = parser.add_mutually_exclusive_group(required=True)
+src_group = parser.add_mutually_exclusive_group(required=False)
 src_group.add_argument("-q", "--qrz", action="store_const", const=DataSource.QRZ, dest="src",
                        help="Use QRZ as a lookup source")
 src_group.add_argument("-l", "--callook", action="store_const", const=DataSource.CALLOOK, dest="src",

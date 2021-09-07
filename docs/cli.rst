@@ -14,7 +14,7 @@ It can be used with the following arguments:
 
 .. code-block:: none
 
-    usage: callsignlookuptools [-h] [-v] [--no-pretty] (-q | -l) [-u USERNAME] [-p PASSWORD] [CALL]
+    usage: callsignlookuptools [-h] [-v] [--no-pretty] [-q | -l] [-u USERNAME] [-p PASSWORD] [CALL]
 
     Retrieve callsign data from various sources
 
