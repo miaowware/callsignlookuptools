@@ -6,6 +6,7 @@ Released under the terms of the BSD 3-Clause license.
 """
 
 
+from typing import Optional
 from urllib.parse import urlencode
 
 import requests
@@ -31,8 +32,11 @@ class QrzSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzClientAbc):
     """
     def __init__(self, username: str, password: str, session_key: str = "",
                  useragent: str = f"python-callsignlookuptools-v{__version__}",
-                 session: requests.Session = requests.Session()):
-        self._session = session
+                 session: Optional[requests.Session] = None):
+        if session is None:
+            self._session = requests.Session()
+        else:
+            self._session = session
         super().__init__(username, password, session_key=session_key, useragent=useragent)
 
     def search(self, callsign: str) -> dataclasses.CallsignData:

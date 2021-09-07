@@ -2,7 +2,7 @@
 CLI Usage
 =========
 
-.. NOTE:: To use the CLI, install with the extra ``cli`` (e.g. ``pip install qrztools[cli]``) or otherwise install the library ``rich``.
+.. NOTE:: To use the CLI, install with the extra ``cli`` (e.g. ``pip install callsignlookuptools[cli]``) or otherwise install the library ``rich``.
 
 ``callsignlookuptools`` has a basic CLI interface, which can be run using:
 
@@ -14,7 +14,7 @@ It can be used with the following arguments:
 
 .. code-block:: none
 
-    usage: callsignlookuptools [-h] [-v] [--no-pretty] [-q] [-l] [-u USERNAME] [-p PASSWORD] [CALL]
+    usage: callsignlookuptools [-h] [-v] [--no-pretty] (-q | -l) [-u USERNAME] [-p PASSWORD] [CALL]
 
     Retrieve callsign data from various sources
 

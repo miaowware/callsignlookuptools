@@ -120,7 +120,7 @@ class QrzClientAbc(abcs.LookupAbc, ABC):
     _base_url = "https://xmldata.qrz.com/xml/current/?"
 
     def __init__(self, username: str, password: str, session_key: str = "",
-                 useragent: str = f"python-qrztools-v{__version__}"):
+                 useragent: str = f"python-callsignlookuptools-v{__version__}"):
         self._username = username
         self._password = password
         self._useragent = useragent

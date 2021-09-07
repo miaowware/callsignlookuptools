@@ -24,6 +24,17 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
         self._session = session
         super().__init__()
 
+    @classmethod
+    async def new(cls, session: Optional[aiohttp.ClientSession] = None) -> 'CallookAsyncClient':
+        """Creates a ``CallookAsyncClient`` object and automatically starts a session if not provided.
+
+        :param session: An aiohttp session to use for requests
+        """
+        obj = cls(session)
+        if obj.session is None:
+            await obj.start_session()
+        return obj
+
     async def search(self, callsign: str) -> dataclasses.CallsignData:  # type: ignore
         if not callsign.isalnum():
             raise exceptions.CallsignLookupError("Invalid Callsign")
@@ -36,9 +47,11 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
         )
 
     async def _do_query(self, **query) -> bytes:  # type: ignore
-        if self._session is None:
-            await self.start_session()
-        async with self._session.get(self._base_url.format(query["callsign"])) as resp:  # type: ignore
-            if resp.status != 200:
-                raise exceptions.CallsignLookupError(f"Unable to connect to Callook (HTTP Error {resp.status})")
-            return await resp.read()
+        if self._session is not None:
+            async with self._session.get(self._base_url.format(query["callsign"])) as resp:
+                if resp.status != 200:
+                    raise exceptions.CallsignLookupError(f"Unable to connect to Callook (HTTP Error {resp.status})")
+                return await resp.read()
+        else:
+            raise exceptions.CallsignLookupError(("Session not initialised. "
+                                                  "Hint: Call `.start_session()` or use the `new()` classmethod."))

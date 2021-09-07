@@ -6,6 +6,8 @@ Released under the terms of the BSD 3-Clause license.
 """
 
 
+from typing import Optional
+
 import requests
 
 from ..common import mixins, dataclasses, exceptions
@@ -18,8 +20,11 @@ class CallookSyncClient(mixins.SyncMixin, CallookClientAbc):
     :param session: A requests session to use for requests
     :type session: requests.Session
     """
-    def __init__(self, session: requests.Session = requests.Session()):
-        self._session = session
+    def __init__(self, session: Optional[requests.Session] = None):
+        if session is None:
+            self._session = requests.Session()
+        else:
+            self._session = session
         super().__init__()
 
     def search(self, callsign: str) -> dataclasses.CallsignData:

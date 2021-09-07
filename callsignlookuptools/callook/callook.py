@@ -82,13 +82,13 @@ class CallookOtherInfoModel(BaseModel):
 class CallookDataModel(BaseModel):
     status: enums.CallookStatus = enums.CallookStatus.VALID
     type: enums.CallsignType = enums.CallsignType.NONE
-    current: CallookCallsignModel = CallookCallsignModel()
-    previous: CallookCallsignModel = CallookCallsignModel()
-    trustee: CallookTrusteeModel = CallookTrusteeModel()
+    current: CallookCallsignModel = Field(default_factory=CallookCallsignModel)
+    previous: CallookCallsignModel = Field(default_factory=CallookCallsignModel)
+    trustee: CallookTrusteeModel = Field(default_factory=CallookTrusteeModel)
     name: Optional[str] = None
-    address: CallookAddressModel = CallookAddressModel()
-    location: CallookLocationModel = CallookLocationModel()
-    otherInfo: CallookOtherInfoModel = CallookOtherInfoModel()
+    address: CallookAddressModel = Field(default_factory=CallookAddressModel)
+    location: CallookLocationModel = Field(default_factory=CallookLocationModel)
+    otherInfo: CallookOtherInfoModel = Field(default_factory=CallookOtherInfoModel)
 
     class Config:
         anystr_strip_whitespace = True
