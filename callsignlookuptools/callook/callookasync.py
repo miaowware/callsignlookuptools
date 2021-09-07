@@ -54,4 +54,4 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
                 return await resp.read()
         else:
             raise exceptions.CallsignLookupError(("Session not initialised. "
-                                                  "Hint: Call `.start_session()` or use the `new()` classmethod."))
+                                                  "Hint: Call `.start_session()` once or use the `new()` classmethod."))
