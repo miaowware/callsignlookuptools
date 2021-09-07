@@ -1,5 +1,5 @@
 """
-qrztools: asynchronous editon
+hamqthtools: asynchronous editon
 ---
 Copyright 2021 classabbyamp, 0x5c
 Released under the terms of the BSD 3-Clause license.
@@ -13,19 +13,19 @@ import aiohttp
 
 from ..common import mixins, dataclasses, exceptions
 from ..common.constants import DEFAULT_USERAGENT
-from .qrz import QrzClientAbc
+from .hamqth import HamQthClientAbc
 
 
-class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
-    """Asynchronous QRZ API client
+class HamQthAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, HamQthClientAbc):
+    """Asynchronous HamQTH API client
 
-    :param username: QRZ username
+    :param username: HamQTH username
     :type username: str
-    :param password: QRZ password
+    :param password: HamQTH password
     :type password: str
-    :param session_key: QRZ login session key
+    :param session_key: HamQTH login session key
     :type session_key: str
-    :param useragent: Useragent for QRZ
+    :param useragent: Useragent for HamQTH
     :type useragent: str
     :param session: An aiohttp session to use for requests
     :type session: Optional[aiohttp.ClientSession]
@@ -39,13 +39,13 @@ class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
     @classmethod
     async def new(cls, username: str, password: str, session_key: str = "",
                   useragent: str = DEFAULT_USERAGENT,
-                  session: Optional[aiohttp.ClientSession] = None) -> 'QrzAsyncClient':
-        """Creates a ``QrzAsyncClient`` object and automatically starts a session if not provided.
+                  session: Optional[aiohttp.ClientSession] = None):
+        """Creates a ``HamQthAsyncClient`` object and automatically starts a session if not provided.
 
-        :param username: QRZ username
-        :param password: QRZ password
-        :param session_key: QRZ login session key
-        :param useragent: Useragent for QRZ
+        :param username: HamQTH username
+        :param password: HamQTH password
+        :param session_key: HamQTH login session key
+        :param useragent: Useragent for HamQTH
         :param session: An aiohttp session to use for requests
         """
         obj = cls(username, password, session_key, useragent, session)
@@ -58,20 +58,22 @@ class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
             raise exceptions.CallsignLookupError("Invalid Callsign")
         try:
             await self._check_session(
-                s=self._session_key
+                id=self._session_key,
+                prg=self._useragent
             )
         except exceptions.CallsignLookupError:
             await self._login(
-                username=self._username,
-                password=self._password,
-                agent=self._useragent
+                u=self._username,
+                p=self._password,
+                prg=self._useragent
             )
 
         return self._process_search(
             query=callsign.upper(),
             resp=await self._do_query(
-                s=self._session_key,
-                callsign=callsign.upper()
+                id=self._session_key,
+                callsign=callsign.upper(),
+                prg=self._useragent
             )
         )
 
@@ -79,7 +81,7 @@ class QrzAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, QrzClientAbc):
         if self._session is not None:
             async with self._session.get(self._base_url + urlencode(query)) as resp:
                 if resp.status != 200:
-                    raise exceptions.CallsignLookupError(f"Unable to connect to QRZ (HTTP Error {resp.status})")
+                    raise exceptions.CallsignLookupError(f"Unable to connect to HamQTH (HTTP Error {resp.status})")
                 return await resp.read()
         else:
             raise exceptions.CallsignLookupError(("Session not initialised. "

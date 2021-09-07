@@ -17,12 +17,12 @@ class LookupAbc(ABC):
     def __init__(self):
         pass
 
-    @property  # type: ignore
+    @property  # type: ignore[misc]
     @abstractmethod
     def session(self):
         pass
 
-    @session.setter  # type: ignore
+    @session.setter  # type: ignore[misc]
     @abstractmethod
     def session(self, val):
         pass

@@ -14,7 +14,7 @@ from getpass import getpass
 from datetime import datetime
 from typing import Callable
 
-from callsignlookuptools import QrzSyncClient, CallookSyncClient
+from callsignlookuptools import QrzSyncClient, CallookSyncClient, HamQthSyncClient, QrzCqSyncClient
 from callsignlookuptools import CallsignData, CallsignLookupError, __version__
 from callsignlookuptools.common.enums import DataSource
 
@@ -75,14 +75,20 @@ parser.add_argument("--no-pretty", required=False, action="store_false", dest="p
 
 src_group = parser.add_mutually_exclusive_group(required=False)
 src_group.add_argument("-q", "--qrz", action="store_const", const=DataSource.QRZ, dest="src",
-                       help="Use QRZ as a lookup source")
+                       help="Use QRZ as lookup source")
 src_group.add_argument("-l", "--callook", action="store_const", const=DataSource.CALLOOK, dest="src",
-                       help="Use Callook as a lookup source")
+                       help="Use Callook as lookup source")
+src_group.add_argument("-a", "--hamqth", required=False, action="store_const", const=DataSource.HAMQTH, dest="src",
+                       help="Use HamQTH as lookup source")
+src_group.add_argument("-r", "--qrzcq", required=False, action="store_const", const=DataSource.QRZCQ, dest="src",
+                       help="Use QRZCQ as lookup source")
 
 parser.add_argument("-u", "--user", "--username", required=False, type=str, dest="username", action="store",
-                    help="Data source username. Needed for QRZ. If needed and not specified, it will be asked for")
+                    help=("Data source username. Needed for QRZ, HamQTH, and QRZCQ. "
+                          "If needed and not specified, it will be asked for"))
 parser.add_argument("-p", "--pass", "--password", required=False, type=str, dest="password", action="store",
-                    help="Data source password. Needed for QRZ. If needed and not specified, it will be asked for")
+                    help=("Data source password. Needed for QRZ, HamQTH, and QRZCQ. "
+                          "If needed and not specified, it will be asked for"))
 parser.add_argument("call", type=str, metavar="CALL", nargs="?", help="The callsign to look up")
 args = parser.parse_args()
 
@@ -100,15 +106,21 @@ if args.pretty:
 lookup_classes = {
     DataSource.QRZ: QrzSyncClient,
     DataSource.CALLOOK: CallookSyncClient,
+    DataSource.HAMQTH: HamQthSyncClient,
+    DataSource.QRZCQ: QrzCqSyncClient,
 }
 
 
-source = args.src
-lookup: Callable = lookup_classes[args.src]
+if args.src:
+    source = args.src
+    lookup: Callable = lookup_classes[args.src]
+else:
+    print("No lookup source given")
+    raise SystemExit(1)
 
 
 # auth sources
-if source == DataSource.QRZ:
+if source in (DataSource.QRZ, DataSource.HAMQTH, DataSource.QRZCQ):
     if args.username:
         username = args.username
     else:
@@ -120,8 +132,8 @@ if source == DataSource.QRZ:
         password = getpass(f"{source.value.capitalize()} Password: ")
 
     lookup_obj = lookup(username=username, password=password)
-# no auth sources
-elif args.callook:
+# non-auth sources
+elif source in (DataSource.CALLOOK,):
     lookup_obj = lookup()
 
 

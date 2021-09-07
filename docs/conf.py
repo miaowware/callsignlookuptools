@@ -16,16 +16,17 @@ import sys
 import miaowware_sphinx_theme  # type: ignore
 
 sys.path.insert(0, os.path.abspath(".."))
+import callsignlookuptools.__info__ as info  # noqa: E402
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'callsignlookuptools'
-copyright = '2021 classabbyamp, 0x5c'
-author = 'classabbyamp, 0x5c'
+project = info.__project__
+copyright = f"2021 {info.__author__}"
+author = info.__author__
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.0'
+release = info.__version__
 
 
 # -- General configuration ---------------------------------------------------

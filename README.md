@@ -1,8 +1,8 @@
 # callsignlookuptools
 
-An API interface for various ham radio callsign lookup sites in Python, including [QRZ](https://qrz.com) and [callook.info](https://callook.info)
+A [QRZ](https://www.qrz.com), [Callook](https://callook.info), [HamQTH](https://www.hamqth.com), and [QRZCQ](https://www.qrzcq.com) API interface in Python with sync and async support.
 
-[![PyPI](https://img.shields.io/pypi/v/callsignlookuptools)](https://pypi.org/project/callsignlookuptools/) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/callsignlookuptools) ![PyPI - License](https://img.shields.io/pypi/l/callsignlookuptools) [![Documentation Status](https://readthedocs.org/projects/callsignlookuptools/badge/?version=latest)](https://callsignlookuptools.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/callsignlookuptools)](https://pypi.org/project/callsignlookuptools/) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/callsignlookuptools) ![PyPI - License](https://img.shields.io/pypi/l/callsignlookuptools) [![Documentation Status](https://readthedocs.org/projects/callsignlookuptools/badge/?version=stable)](https://callsignlookuptools.readthedocs.io/en/stable/?badge=stable)
 
 ## Installation
 
@@ -24,7 +24,7 @@ $ pip install callsignlookuptools[cli]
 
 **Note:** If `requests`, `aiohttp`, or `rich` are installed another way, you will also have access to the sync, async, or command-line interface, respectively.
 
-## Documentation
+## Usage and Documentation
 
 Documentation is available on [ReadTheDocs](https://callsignlookuptools.miaow.io/).
 

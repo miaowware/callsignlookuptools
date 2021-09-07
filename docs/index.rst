@@ -2,7 +2,12 @@
 Callsign Lookup Tools
 =====================
 
-A QRZ.com and callook.info API interface in Python with sync and async support.
+A `QRZ`_, `Callook`_, `HamQTH`_, and `QRZCQ`_ API interface in Python with sync and async support.
+
+.. _QRZ: https://www.qrz.com
+.. _Callook: https://callook.info
+.. _HamQTH: https://www.hamqth.com
+.. _QRZCQ: https://www.qrzcq.com
 
 .. highlight:: none
 
