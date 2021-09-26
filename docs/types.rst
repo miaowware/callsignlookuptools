@@ -2,7 +2,7 @@
 Data Types
 ==========
 
-.. note:: If an attribute of any class is unknown or not included from that data source, it will be ``None``.
+.. note:: If an attribute of any class is unknown or not included from that data source, it will be ``None`` or a similar enum value.
 
 .. currentmodule:: callsignlookuptools
 

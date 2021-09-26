@@ -17,14 +17,14 @@ class LookupAbc(ABC):
     def __init__(self):
         pass
 
-    @property  # type: ignore
+    @property
     @abstractmethod
     def session(self):
         pass
 
-    @session.setter  # type: ignore
+    @session.setter  # type: ignore[attr-defined] # python/mypy#1465
     @abstractmethod
-    def session(self, val):
+    def set_session(self, val):
         pass
 
     @abstractmethod
@@ -61,8 +61,8 @@ class AuthMixinAbc(ABC):
         """
         return self._username
 
-    @username.setter
-    def username(self, val: str) -> None:
+    @username.setter  # type: ignore[attr-defined] # python/mypy#1465
+    def set_username(self, val: str) -> None:
         self._username = val
 
     @property
@@ -76,8 +76,8 @@ class AuthMixinAbc(ABC):
         """
         return self._password
 
-    @password.setter
-    def password(self, val: str) -> None:
+    @password.setter  # type: ignore[attr-defined] # python/mypy#1465
+    def set_password(self, val: str) -> None:
         self._password = val
 
     @property
@@ -91,8 +91,8 @@ class AuthMixinAbc(ABC):
         """
         return self._useragent
 
-    @useragent.setter
-    def useragent(self, val: str) -> None:
+    @useragent.setter  # type: ignore[attr-defined] # python/mypy#1465
+    def set_useragent(self, val: str) -> None:
         self._useragent = val
 
     @property
@@ -106,8 +106,8 @@ class AuthMixinAbc(ABC):
         """
         return self._session_key
 
-    @session_key.setter
-    def session_key(self, val: str) -> None:
+    @session_key.setter  # type: ignore[attr-defined] # python/mypy#1465
+    def set_session_key(self, val: str) -> None:
         self._session_key = val
 
     @abstractmethod

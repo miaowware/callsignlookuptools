@@ -25,3 +25,25 @@ Callook
 .. autoclass:: CallookAsyncClient()
     :members:
     :inherited-members:
+
+HamQTH
+======
+
+.. autoclass:: HamQthSyncClient()
+    :members:
+    :inherited-members:
+
+.. autoclass:: HamQthAsyncClient()
+    :members:
+    :inherited-members:
+
+QRZCQ
+=====
+
+.. autoclass:: QrzCqSyncClient()
+    :members:
+    :inherited-members:
+
+.. autoclass:: QrzCqAsyncClient()
+    :members:
+    :inherited-members:

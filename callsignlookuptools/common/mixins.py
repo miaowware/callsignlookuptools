@@ -57,8 +57,8 @@ if find_spec("requests"):
             """
             return self._session
 
-        @session.setter
-        def session(self, val: requests.Session):
+        @session.setter  # type: ignore[attr-defined] # python/mypy#1465
+        def set_session(self, val: requests.Session):
             self._session = val
 
 
@@ -100,8 +100,8 @@ if find_spec("aiohttp"):
             """
             return self._session
 
-        @session.setter
-        def session(self, val: Optional[aiohttp.ClientSession]):
+        @session.setter  # type: ignore[attr-defined] # python/mypy#1465
+        def set_session(self, val: Optional[aiohttp.ClientSession]):
             self._session = val
 
         async def start_session(self):

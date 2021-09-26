@@ -35,7 +35,7 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
             await obj.start_session()
         return obj
 
-    async def search(self, callsign: str) -> dataclasses.CallsignData:  # type: ignore
+    async def search(self, callsign: str) -> dataclasses.CallsignData:  # type: ignore[override]
         if not callsign.isalnum():
             raise exceptions.CallsignLookupError("Invalid Callsign")
 
@@ -46,7 +46,7 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
             )
         )
 
-    async def _do_query(self, **query) -> bytes:  # type: ignore
+    async def _do_query(self, **query) -> bytes:  # type: ignore[override]
         if self._session is not None:
             async with self._session.get(self._base_url.format(query["callsign"])) as resp:
                 if resp.status != 200:

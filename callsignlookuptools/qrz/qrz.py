@@ -13,8 +13,8 @@ from datetime import datetime
 from gridtools import Grid, LatLong
 from pydantic import BaseModel, Field, validator
 
-from ..__info__ import __version__
 from ..common import abcs, enums, functions, dataclasses, exceptions
+from ..common.constants import DEFAULT_USERAGENT
 
 
 class QrzDataModel(BaseModel):
@@ -120,7 +120,7 @@ class QrzClientAbc(abcs.LookupAbc, ABC):
     _base_url = "https://xmldata.qrz.com/xml/current/?"
 
     def __init__(self, username: str, password: str, session_key: str = "",
-                 useragent: str = f"python-callsignlookuptools-v{__version__}"):
+                 useragent: str = DEFAULT_USERAGENT):
         self._username = username
         self._password = password
         self._useragent = useragent
