@@ -38,7 +38,21 @@ Installation
     # enable the CLI
     $ pip install callsignlookuptools[cli]
 
-.. NOTE:: If ``requests``, ``aiohttp``, or ``rich`` are installed another way, you will also have access to the sync, async, or command-line interface, respectively.
+.. NOTE:: If ``requests``, ``aiohttp``, or ``typer[all]`` and ``click-help-colors`` are installed another way, you will also have access to the sync, async, or command-line interface, respectively.
+
+API Support
+===========
+
+Some of the supported callsign lookup APIs require accounts and/or paid subscriptions to be used.
+
+=========== ============
+Site        Requirements
+=========== ============
+`QRZ`_      QRZ account and `XML Logbook Data or QRZ Premium subscription <https://shop.qrz.com/collections/subscriptions>`_
+`Callook`_  None
+`HamQTH`_   HamQTH account
+`QRZCQ`_    QRZCQ account and `QRZCQ Premium subscription <https://www.qrzcq.com/page/premium>`_
+=========== ============
 
 Getting Started
 ===============

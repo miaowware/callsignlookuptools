@@ -137,6 +137,7 @@ class CallookClientAbc(abcs.LookupAbc, ABC):
             callsign=model_data.trustee.callsign,
             name=model_data.trustee.name
         )
+        calldata.name = dataclasses.Name(name=model_data.name)
         city = None
         state = None
         zip = None

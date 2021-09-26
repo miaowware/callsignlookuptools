@@ -114,6 +114,7 @@ class QrzCqClientAbc(abcs.LookupAbc, ABC):
         )
 
         calldata.callsign = model_data.call
+        calldata.name = dataclasses.Name(name=model_data.name)
         calldata.qth = model_data.qth
         calldata.address = dataclasses.Address(
             line1=model_data.address,
