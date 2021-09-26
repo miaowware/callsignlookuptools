@@ -1,5 +1,6 @@
 sphinx
 sphinx-autobuild
+sphinx-autodoc-typehints
 sphinxcontrib-fulltoc
 sphinx_toolbox
 enum_tools

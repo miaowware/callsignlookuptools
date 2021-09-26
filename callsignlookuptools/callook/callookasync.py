@@ -18,7 +18,6 @@ class CallookAsyncClient(mixins.AsyncMixin, CallookClientAbc):
     """Asynchronous Callook API client
 
     :param session: An aiohttp session to use for requests
-    :type session: Optional[aiohttp.ClientSession]
     """
     def __init__(self, session: Optional[aiohttp.ClientSession] = None):
         self._session = session

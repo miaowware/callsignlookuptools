@@ -36,6 +36,7 @@ release = info.__version__
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx_autodoc_typehints",
     "sphinxcontrib.fulltoc",
     "enum_tools.autoenum",
 ]

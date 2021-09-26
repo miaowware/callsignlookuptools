@@ -32,9 +32,7 @@ class LookupAbc(ABC):
         """Search for a callsign
 
         :param callsign: the callsign to look up
-        :type callsign: str
         :return: the callsign data from the lookup service
-        :rtype: :class:`CallsignData`
         :raises: :class:`common.exceptions.CallsignLookupError` on network or parsing error
         """
         pass
@@ -54,10 +52,8 @@ class AuthMixinAbc(ABC):
     def username(self) -> str:
         """
         :getter: gets username
-        :rtype: str
 
         :setter: sets username
-        :type: str
         """
         return self._username
 
@@ -69,10 +65,8 @@ class AuthMixinAbc(ABC):
     def password(self) -> str:
         """
         :getter: gets password
-        :rtype: str
 
         :setter: sets password
-        :type: str
         """
         return self._password
 
@@ -84,10 +78,8 @@ class AuthMixinAbc(ABC):
     def useragent(self) -> str:
         """
         :getter: gets useragent
-        :rtype: str
 
         :setter: sets useragent
-        :type: str
         """
         return self._useragent
 
@@ -99,10 +91,8 @@ class AuthMixinAbc(ABC):
     def session_key(self) -> str:
         """
         :getter: gets API session key
-        :rtype: str
 
         :setter: sets API session key
-        :type: str
         """
         return self._session_key
 

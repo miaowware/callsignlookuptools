@@ -20,15 +20,10 @@ class HamQthAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, HamQthClien
     """Asynchronous HamQTH API client
 
     :param username: HamQTH username
-    :type username: str
     :param password: HamQTH password
-    :type password: str
     :param session_key: HamQTH login session key
-    :type session_key: str
     :param useragent: Useragent for HamQTH
-    :type useragent: str
     :param session: An aiohttp session to use for requests
-    :type session: Optional[aiohttp.ClientSession]
     """
     def __init__(self, username: str, password: str, session_key: str = "",
                  useragent: str = DEFAULT_USERAGENT,
