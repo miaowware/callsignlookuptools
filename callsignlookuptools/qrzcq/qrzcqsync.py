@@ -20,15 +20,10 @@ class QrzCqSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzCqClientAbc)
     """Synchronous QRZCQ API client
 
     :param username: QRZCQ username
-    :type username: str
     :param password: QRZCQ password
-    :type password: str
     :param session_key: QRZCQ login session key
-    :type session_key: str
     :param useragent: Useragent for QRZCQ
-    :type useragent: str
     :param session: A requests session to use for requests
-    :type session: requests.Session
     """
     def __init__(self, username: str, password: str, session_key: str = "",
                  useragent: str = DEFAULT_USERAGENT,

@@ -20,15 +20,10 @@ class HamQthSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, HamQthClientAb
     """Synchronous HamQTH API client
 
     :param username: HamQTH username
-    :type username: str
     :param password: HamQTH password
-    :type password: str
     :param session_key: HamQTH login session key
-    :type session_key: str
     :param useragent: Useragent for HamQTH
-    :type useragent: str
     :param session: A requests session to use for requests
-    :type session: requests.Session
     """
     def __init__(self, username: str, password: str, session_key: str = "",
                  useragent: str = DEFAULT_USERAGENT,

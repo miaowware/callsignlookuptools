@@ -18,7 +18,6 @@ class CallookSyncClient(mixins.SyncMixin, CallookClientAbc):
     """Synchronous Callook API client
 
     :param session: A requests session to use for requests
-    :type session: requests.Session
     """
     def __init__(self, session: Optional[requests.Session] = None):
         if session is None:
