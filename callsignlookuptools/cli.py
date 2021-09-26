@@ -126,11 +126,15 @@ class CustomHelpColoursCommand(HelpColorsCommand):
         self.help_options_color = "yellow"
 
 
+epilog = (f"Copyright {__info__.__copyright__} by {__info__.__author__}. "
+          f"Released under the {__info__.__license__} License")
+
+
 class ColourTyper(typer.Typer):
     def __init__(self, *args, cls=CustomHelpColoursGroup, context_settings={"help_option_names": ["-h", "--help"]},
                  **kwargs) -> None:
-        super().__init__(*args, cls=cls, context_settings=context_settings, **kwargs)
+        super().__init__(*args, cls=cls, context_settings=context_settings, epilog=epilog, **kwargs)
 
     def command(self, *args, cls=CustomHelpColoursCommand, context_settings={"help_option_names": ["-h", "--help"]},
                 **kwargs) -> Callable:
-        return super().command(*args, cls=cls, context_settings=context_settings, **kwargs)
+        return super().command(*args, cls=cls, context_settings=context_settings, epilog=epilog, **kwargs)

@@ -21,9 +21,7 @@ except ModuleNotFoundError:
     raise SystemExit(42)
 
 
-app = ColourTyper(add_completion=False)  # TODO: is add_completion=False wanted? Can it be included but hidden?
-# TODO: add copyright/repo epilog
-
+app = ColourTyper(add_completion=False)
 
 
 def version_callback(value: bool):
