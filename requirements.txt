@@ -2,5 +2,6 @@ lxml
 gridtools
 requests
 aiohttp
-rich
 pydantic
+typer[all]
+click-help-colors
