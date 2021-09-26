@@ -12,3 +12,4 @@ __author__ = "classabbyamp, 0x5c"
 __email__ = "dev@kb6.ee, dev@0x5c.io"
 
 __license__ = "BSD 3-Clause"
+__copyright__ = "2021"

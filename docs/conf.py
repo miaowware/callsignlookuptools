@@ -22,7 +22,7 @@ import callsignlookuptools.__info__ as info  # noqa: E402
 # -- Project information -----------------------------------------------------
 
 project = info.__project__
-copyright = f"2021 {info.__author__}"
+copyright = f"{info.__copyright__} {info.__author__}"
 author = info.__author__
 
 # The full version, including alpha/beta/rc tags
