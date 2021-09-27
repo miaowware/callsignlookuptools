@@ -40,7 +40,7 @@ setup(
         "requests; extra != 'async'"
     ],
     extras_require={
-        "cli": ["typer[all], click-help-colors"],
+        "cli": ["typer[all]", "click-help-colors"],
         "async": ["aiohttp"],
         "all": ["aiohttp"]
     }
