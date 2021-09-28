@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup  # type: ignore
+from setuptools import setup, find_packages  # type: ignore
 import callsignlookuptools.__info__ as info
 
 # The directory containing this file
@@ -29,7 +29,7 @@ setup(
         "Topic :: Communications :: Ham Radio",
         "Framework :: AsyncIO",
     ],
-    packages=["callsignlookuptools"],
+    packages=find_packages(exclude=["tests", "docs"]),
     package_data={
         "callsignlookuptools": ["py.typed"]
     },
@@ -43,5 +43,6 @@ setup(
         "cli": ["typer[all]", "click-help-colors"],
         "async": ["aiohttp"],
         "all": ["aiohttp"]
-    }
+    },
+    python_requires=">=3.9",
 )
