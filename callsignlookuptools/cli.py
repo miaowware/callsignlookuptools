@@ -9,7 +9,7 @@ from sys import stderr
 from enum import Enum
 from dataclasses import asdict
 from datetime import datetime
-from typing import Callable
+from typing import Callable, Optional
 
 from callsignlookuptools import QrzSyncClient, CallookSyncClient, HamQthSyncClient, QrzCqSyncClient
 from callsignlookuptools import CallsignData, CallsignLookupError, __info__
@@ -84,7 +84,7 @@ def tabulate(data: CallsignData) -> str:
     return result.rstrip("\n")
 
 
-def run_query(source: DataSource, query: str, username: str = None, password: str = None):
+def run_query(source: DataSource, query: str, username: Optional[str] = None, password: Optional[str] = None):
     """sets up and runs a callsign query, then prints the result"""
     lookup: Callable = lookup_classes[source]
 
