@@ -6,7 +6,7 @@ __project__ = "callsignlookuptools"
 __summary__ = "QRZ, Callook, HamQTH, and QRZCQ API interface with sync and async support"
 __webpage__ = "https://callsignlookuptools.miaow.io"
 
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 
 __author__ = "classabbyamp, 0x5c"
 __email__ = "dev@placeviolette.net, dev@0x5c.io"
