@@ -3,7 +3,7 @@ callsignlookuptools
 ---
 QRZ and callook.info API interface in Python
 
-Copyright 2021 classabbyamp, 0x5c
+Copyright 2021-2023 classabbyamp, 0x5c
 Released under the terms of the BSD 3-Clause license.
 """
 

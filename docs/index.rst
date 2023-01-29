@@ -121,6 +121,6 @@ Async
 License
 =======
 
-Copyright 2021 classabbyamp, 0x5c
+Copyright 2021-2023 classabbyamp, 0x5c
 
 Released under the BSD 3-Clause License. See ``LICENSE`` for the full license text.
