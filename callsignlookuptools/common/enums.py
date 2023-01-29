@@ -67,6 +67,9 @@ class QslStatus(Enum):
     NO = False
     UNKNOWN = None
 
+    def __str__(self) -> str:
+        return self.name.title()
+
 
 class CallookStatus(Enum):
     VALID = "VALID"
