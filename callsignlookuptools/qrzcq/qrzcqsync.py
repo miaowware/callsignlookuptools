@@ -13,6 +13,7 @@ import requests
 
 from ..common import mixins, dataclasses, exceptions
 from ..common.constants import DEFAULT_USERAGENT
+from ..common.functions import is_callsign
 from .qrzcq import QrzCqClientAbc
 
 
@@ -35,7 +36,7 @@ class QrzCqSyncClient(mixins.SyncXmlAuthMixin, mixins.SyncMixin, QrzCqClientAbc)
         super().__init__(username, password, session_key=session_key, useragent=useragent)
 
     def search(self, callsign: str) -> dataclasses.CallsignData:
-        if not callsign.isalnum():
+        if not is_callsign(callsign):
             raise exceptions.CallsignLookupError("Invalid Callsign")
         try:
             self._check_session(

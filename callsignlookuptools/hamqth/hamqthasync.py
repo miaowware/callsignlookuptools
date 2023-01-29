@@ -13,6 +13,7 @@ import aiohttp
 
 from ..common import mixins, dataclasses, exceptions
 from ..common.constants import DEFAULT_USERAGENT
+from ..common.functions import is_callsign
 from .hamqth import HamQthClientAbc
 
 
@@ -49,7 +50,7 @@ class HamQthAsyncClient(mixins.AsyncXmlAuthMixin, mixins.AsyncMixin, HamQthClien
         return obj
 
     async def search(self, callsign: str) -> dataclasses.CallsignData:  # type: ignore[override]
-        if not callsign.isalnum():
+        if not is_callsign(callsign):
             raise exceptions.CallsignLookupError("Invalid Callsign")
         try:
             await self._check_session(
