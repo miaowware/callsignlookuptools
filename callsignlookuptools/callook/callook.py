@@ -71,7 +71,10 @@ class CallookOtherInfoModel(BaseModel):
     @validator("grantDate", "expiryDate", "lastActionDate", pre=True)
     def _parse_date(cls, v):
         if isinstance(v, str):
-            return datetime.strptime(v, "%m/%d/%Y")
+            try:
+                return datetime.strptime(v, "%m/%d/%Y")
+            except ValueError:
+                return None
         return v
 
     class Config:
