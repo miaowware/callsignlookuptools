@@ -11,6 +11,7 @@ from typing import Optional
 import requests
 
 from ..common import mixins, dataclasses, exceptions
+from ..common.functions import is_callsign
 from .callook import CallookClientAbc
 
 
@@ -27,7 +28,7 @@ class CallookSyncClient(mixins.SyncMixin, CallookClientAbc):
         super().__init__()
 
     def search(self, callsign: str) -> dataclasses.CallsignData:
-        if not callsign.isalnum():
+        if not is_callsign(callsign):
             raise exceptions.CallsignLookupError("Invalid Callsign")
 
         return self._process_search(

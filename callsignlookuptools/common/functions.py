@@ -43,3 +43,8 @@ def xml2dict(xml: Union[bytes, etree._Element], to_lower: bool = True) -> Dict:
         else:
             result[key] = value
     return result
+
+
+def is_callsign(callsign: str) -> bool:
+    """Check if a callsign is valid"""
+    return callsign.isascii() and callsign.replace("/", "").isalnum()
