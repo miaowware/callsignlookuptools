@@ -155,9 +155,10 @@ class QrzClientAbc(abcs.LookupAbc, ABC):
         if model_data.xref:
             calldata.query = model_data.xref
         calldata.aliases = model_data.aliases
-        calldata.trustee = dataclasses.Trustee(
-            callsign=model_data.trustee
-        )
+        if model_data.trustee:
+            calldata.trustee = dataclasses.Trustee(
+                callsign=model_data.trustee
+            )
         calldata.lic_class = model_data.class_
         calldata.lic_codes = model_data.codes
         calldata.effective_date = model_data.efdate
@@ -215,14 +216,14 @@ class QrzClientAbc(abcs.LookupAbc, ABC):
             size=model_data.bio,
             updated=model_data.biodate
         )
-        if model_data.imageinfo is not None:
+        if model_data.imageinfo is not None and model_data.image:
             calldata.image = dataclasses.Image(
                 url=model_data.image,
                 size=model_data.imageinfo[2],
                 height=model_data.imageinfo[0],
                 width=model_data.imageinfo[1]
             )
-        else:
+        elif model_data.image:
             calldata.image = dataclasses.Image(url=model_data.image)
 
         return calldata
