@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implementation of `__str__` for `QslStatus` for easier display (#23).
 ### Fixed
 - Issue where trustee or image from QRZ could be empty (#22).
+- Improve handling of malformed dates in received data (#24).
 
 
 ## [1.0.1] - 2021-09-27

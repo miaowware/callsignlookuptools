@@ -85,7 +85,10 @@ class QrzDataModel(BaseModel):
     @validator("efdate", "expdate", pre=True)
     def _parse_date(cls, v):
         if isinstance(v, str):
-            return datetime.strptime(v, "%Y-%m-%d")
+            try:
+                return datetime.strptime(v, "%Y-%m-%d")
+            except ValueError:
+                return None
         return v
 
     @validator("eqsl", "mqsl", "lotw", pre=True)
