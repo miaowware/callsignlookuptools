@@ -22,12 +22,6 @@ except ModuleNotFoundError:
     print(f"To use the {__info__.__project__} CLI you must install 'typer[all]'", file=stderr)
     raise SystemExit(42)
 
-try:
-    from click_help_colors import HelpColorsCommand, HelpColorsGroup  # type: ignore[import]
-except ModuleNotFoundError:
-    secho(f"To use the {__info__.__project__} CLI you must install 'click-help-colors'", fg=colors.RED, err=True)
-    raise typer.Exit(42)
-
 
 lookup_classes = {
     DataSource.QRZ: QrzSyncClient,
@@ -107,34 +101,3 @@ def run_query(source: DataSource, query: str, username: Optional[str] = None, pa
     else:
         secho("No callsign given", fg=colors.RED, err=True)
         raise typer.Exit(1)
-
-
-# The following is for adding colours to command help output
-# See https://github.com/tiangolo/typer/issues/47
-
-class CustomHelpColoursGroup(HelpColorsGroup):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        self.help_headers_color = "blue"
-        self.help_options_color = "yellow"
-
-
-class CustomHelpColoursCommand(HelpColorsCommand):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        self.help_headers_color = "blue"
-        self.help_options_color = "yellow"
-
-
-epilog = (f"Copyright {__info__.__copyright__} by {__info__.__author__}. "
-          f"Released under the {__info__.__license__} License")
-
-
-class ColourTyper(typer.Typer):
-    def __init__(self, *args, cls=CustomHelpColoursGroup, context_settings={"help_option_names": ["-h", "--help"]},
-                 **kwargs) -> None:
-        super().__init__(*args, cls=cls, context_settings=context_settings, epilog=epilog, **kwargs)
-
-    def command(self, *args, cls=CustomHelpColoursCommand, context_settings={"help_option_names": ["-h", "--help"]},
-                **kwargs) -> Callable:
-        return super().command(*args, cls=cls, context_settings=context_settings, epilog=epilog, **kwargs)
