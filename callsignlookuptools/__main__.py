@@ -11,17 +11,20 @@ from typing import Optional
 
 from callsignlookuptools import __info__
 from callsignlookuptools.common.enums import DataSource
-from callsignlookuptools.cli import run_query, ColourTyper
+from callsignlookuptools.cli import run_query
 
 try:
     import typer
-    from typer import colors, echo, style
+    from typer import colors, echo, style, Typer
 except ModuleNotFoundError:
     print(f"To use the {__info__.__project__} CLI you must install 'typer[all]'", file=stderr)
     raise SystemExit(42)
 
 
-app = ColourTyper(add_completion=False)
+epilog = (f"Copyright {__info__.__copyright__} by {__info__.__author__}. "
+          f"Released under the {__info__.__license__} License")
+
+app = Typer(context_settings={"help_option_names": ["-h", "--help"]}, epilog=epilog, add_completion=False)
 
 
 def version_callback(value: bool):
