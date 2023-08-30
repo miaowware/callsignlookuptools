@@ -38,7 +38,7 @@ setup(
     install_requires=[
         "lxml",
         "gridtools",
-        "pydantic",
+        "pydantic>=2.0",
         "requests; extra != 'async'"
     ],
     extras_require={

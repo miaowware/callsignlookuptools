@@ -22,7 +22,7 @@ class CallookCallsignModel(BaseModel):
     class_: enums.LicenseClass = Field(default=enums.LicenseClass.NONE, alias="class")
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
@@ -31,7 +31,7 @@ class CallookTrusteeModel(BaseModel):
     name: Optional[str] = None
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
@@ -41,7 +41,7 @@ class CallookAddressModel(BaseModel):
     attn: Optional[str] = None
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
@@ -57,7 +57,7 @@ class CallookLocationModel(BaseModel):
         return v
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
@@ -78,7 +78,7 @@ class CallookOtherInfoModel(BaseModel):
         return v
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
@@ -94,7 +94,7 @@ class CallookDataModel(BaseModel):
     otherInfo: CallookOtherInfoModel = Field(default_factory=CallookOtherInfoModel)
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
