@@ -114,7 +114,7 @@ class QrzDataModel(BaseModel):
         return tuple(v.split(":"))
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 

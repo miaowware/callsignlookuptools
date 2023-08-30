@@ -73,7 +73,7 @@ class QrzCqDataModel(BaseModel):
         return enums.Continent.NONE
 
     class Config:
-        anystr_strip_whitespace = True
+        str_strip_whitespace = True
         arbitrary_types_allowed = True
 
 
