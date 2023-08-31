@@ -22,7 +22,7 @@ $ pip install callsignlookuptools[all]
 $ pip install callsignlookuptools[cli]
 ```
 
-**Note:** If `requests`, `aiohttp`, or `typer[all]` and `click-help-colors` are installed another way, you will also have access to the sync, async, or command-line interface, respectively.
+**Note:** If `requests`, `aiohttp`, or `typer[all]` are installed another way, you will also have access to the sync, async, or command-line interface, respectively.
 
 ## Usage and Documentation
 

@@ -2,7 +2,7 @@
 CLI Usage
 =========
 
-.. NOTE:: To use the CLI, install with the extra ``cli`` (e.g. ``pip install callsignlookuptools[cli]``) or otherwise install the library ``typer[all]`` and ``click-help-colors``.
+.. NOTE:: To use the CLI, install with the extra ``cli`` (e.g. ``pip install callsignlookuptools[cli]``) or otherwise install the library ``typer[all]``.
 
 ``callsignlookuptools`` has a basic CLI interface, which can be run using:
 
