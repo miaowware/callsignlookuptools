@@ -4,4 +4,3 @@ requests
 aiohttp
 pydantic
 typer[all]
-click-help-colors
