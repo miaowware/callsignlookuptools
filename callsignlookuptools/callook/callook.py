@@ -145,7 +145,8 @@ class CallookClientAbc(abcs.LookupAbc, ABC):
         state = None
         zip = None
         if model_data.address.line2:
-            city, state, zip = model_data.address.line2.replace(",", "").split(" ")
+            zip, state, *city_parts = model_data.address.line2.replace(",", "").split(" ")[::-1]
+            city = " ".join(city_parts[::-1])
         calldata.address = dataclasses.Address(
             attn=model_data.address.attn,
             line1=model_data.address.line1,
