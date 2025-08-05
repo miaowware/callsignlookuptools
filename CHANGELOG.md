@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [1.1.2] - 2025-08-05
+### Fixed
+- Parsing of multi-word cities for callook (#39).
+
+
 ## [1.1.1] - 2023-08-31
 ### Fixed
 - Compatibility with newer typer versions (#33).
@@ -38,7 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Command-line interface.
 
 
-[Unreleased]: https://github.com/miaowware/callsignlookuptools/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/miaowware/callsignlookuptools/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/miaowware/callsignlookuptools/releases/tag/v1.1.2
 [1.1.1]: https://github.com/miaowware/callsignlookuptools/releases/tag/v1.1.1
 [1.1.0]: https://github.com/miaowware/callsignlookuptools/releases/tag/v1.1.0
 [1.0.1]: https://github.com/miaowware/callsignlookuptools/releases/tag/v1.0.1
