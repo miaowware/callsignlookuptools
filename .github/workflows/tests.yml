@@ -4,7 +4,7 @@ on: [push,pull_request]
 
 jobs:
   precheck:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
@@ -20,11 +20,11 @@ jobs:
   flake8:
     needs: precheck
     if: ${{ needs.precheck.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
 
     steps:
       - uses: actions/checkout@v2
@@ -47,11 +47,11 @@ jobs:
   mypy:
     needs: precheck
     if: ${{ needs.precheck.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
 
     steps:
       - uses: actions/checkout@v2
@@ -71,11 +71,11 @@ jobs:
   pytest:
     needs: precheck
     if: ${{ needs.precheck.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
 
     steps:
       - uses: actions/checkout@v2
