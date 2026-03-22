@@ -12,12 +12,8 @@ sphinx:
 # Optionally build your docs in additional formats such as PDF and ePub
 formats: all
 
-#! TEMPORARY until 3.9 support (see https://github.com/readthedocs/readthedocs.org/issues/7554)
-build:
-  image: testing
-
 # Optionally set the version of Python and requirements required to build your docs
 python:
-  version: 3.9
+  version: 3.14
   install:
     - requirements: docs/requirements.txt
