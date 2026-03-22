@@ -50,8 +50,16 @@ class CallookLocationModel(BaseModel):
     longitude: Optional[float] = None
     gridsquare: Optional[Grid] = None
 
+    @validator("latitude", "longitude", pre=True)
+    def _empty_lat_lon(cls, v):
+        if v == "" or v is None:
+            return None
+        return v
+
     @validator("gridsquare", pre=True)
     def _to_grid(cls, v):
+        if not v:
+            return None
         if isinstance(v, str):
             return Grid(v)
         return v
