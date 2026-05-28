@@ -11,7 +11,7 @@ from typing import Optional
 from datetime import datetime
 
 from gridtools import Grid, LatLong
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, validator
 
 from ..common import abcs, enums, dataclasses, exceptions
 from ..common.constants import DEFAULT_USERAGENT
