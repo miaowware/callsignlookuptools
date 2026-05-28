@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
+### Added
+- Support for [QRZCALL.EU](https://qrzcall.eu/) callsign lookups via Personal
+  Access Token (Data or Extra subscription required). Available as
+  `QrzcallSyncClient` / `QrzcallAsyncClient` and as a `qrzcall` CLI
+  subcommand. The `DataSource` enum gains a `QRZCALL` member.
 
 
 ## [1.1.2] - 2025-08-05

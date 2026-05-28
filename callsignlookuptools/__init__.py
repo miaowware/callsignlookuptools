@@ -19,12 +19,14 @@ if find_spec("requests"):
     from .qrz.qrzsync import QrzSyncClient
     from .callook.callooksync import CallookSyncClient
     from .hamqth.hamqthsync import HamQthSyncClient
+    from .qrzcall.qrzcallsync import QrzcallSyncClient
     from .qrzcq.qrzcqsync import QrzCqSyncClient
     pass
 if find_spec("aiohttp"):
     from .qrz.qrzasync import QrzAsyncClient
     from .callook.callookasync import CallookAsyncClient
     from .hamqth.hamqthasync import HamQthAsyncClient
+    from .qrzcall.qrzcallasync import QrzcallAsyncClient
     from .qrzcq.qrzcqasync import QrzCqAsyncClient
     pass
 if not find_spec("requests") and not find_spec("aiohttp"):

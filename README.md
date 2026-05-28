@@ -1,6 +1,6 @@
 # callsignlookuptools
 
-A [QRZ](https://www.qrz.com), [Callook](https://callook.info), [HamQTH](https://www.hamqth.com), and [QRZCQ](https://www.qrzcq.com) API interface in Python with sync and async support.
+A [QRZ](https://www.qrz.com), [Callook](https://callook.info), [HamQTH](https://www.hamqth.com), [QRZCALL.EU](https://qrzcall.eu), and [QRZCQ](https://www.qrzcq.com) API interface in Python with sync and async support.
 
 [![PyPI](https://img.shields.io/pypi/v/callsignlookuptools)](https://pypi.org/project/callsignlookuptools/) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/callsignlookuptools) ![PyPI - License](https://img.shields.io/pypi/l/callsignlookuptools) [![Documentation Status](https://readthedocs.org/projects/callsignlookuptools/badge/?version=stable)](https://callsignlookuptools.readthedocs.io/en/stable/?badge=stable)
 
@@ -34,10 +34,11 @@ Some of the supported callsign lookup APIs require accounts and/or paid subscrip
 
 | Site                             | Requirements                                                                                                   |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------|
-| [QRZ](https://www.qrz.com)       | QRZ account and [XML Logbook Data or QRZ Premium subscription](https://shop.qrz.com/collections/subscriptions) |
-| [Callook](https://callook.info)  | None                                                                                                           |
-| [HamQTH](https://www.hamqth.com) | HamQTH account                                                                                                 |
-| [QRZCQ](https://www.qrzcq.com)   | QRZCQ account and [QRZCQ Premium subscription](https://www.qrzcq.com/page/premium)                             |
+| [QRZ](https://www.qrz.com)         | QRZ account and [XML Logbook Data or QRZ Premium subscription](https://shop.qrz.com/collections/subscriptions) |
+| [Callook](https://callook.info)    | None                                                                                                           |
+| [HamQTH](https://www.hamqth.com)   | HamQTH account                                                                                                 |
+| [QRZCALL.EU](https://qrzcall.eu)   | QRZCALL.EU account with a [Data or Extra subscription](https://qrzcall.eu/) and a Personal Access Token        |
+| [QRZCQ](https://www.qrzcq.com)     | QRZCQ account and [QRZCQ Premium subscription](https://www.qrzcq.com/page/premium)                             |
 
 ## Copyright
 

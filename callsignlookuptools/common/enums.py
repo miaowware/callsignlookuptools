@@ -14,6 +14,7 @@ class DataSource(Enum):
     CALLOOK = "callook.info"
     HAMQTH = "hamqth.com"
     QRZ = "qrz.com"
+    QRZCALL = "qrzcall.eu"
     QRZCQ = "qrzcq.com"
 
 

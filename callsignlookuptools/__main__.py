@@ -38,7 +38,7 @@ def main(
     version: Optional[bool] = typer.Option(None, "--version", "-v", callback=version_callback, is_eager=True,
                                            help="Show the version of this program and exit.")
 ):
-    """A QRZ, Callook, HamQTH, and QRZCQ API interface in Python with sync and async support."""
+    """A QRZ, Callook, HamQTH, QRZCALL.EU, and QRZCQ API interface in Python with sync and async support."""
     ...
 
 
@@ -76,6 +76,22 @@ def hamqth(
 
     Requires a HamQTH account"""
     run_query(DataSource.HAMQTH, call, username, password)
+
+
+@app.command()
+def qrzcall(
+    token: str = typer.Option(..., "--token", "-t", prompt=True, hide_input=True,
+                              envvar="QRZCALL_TOKEN",
+                              help="QRZCALL.EU Personal Access Token (pat_…); "
+                                   "set via $QRZCALL_TOKEN or prompted if not provided"),
+    call: str = typer.Argument(..., help="The callsign to look up"),
+):
+    """Use QRZCALL.EU to look up a callsign
+
+    Requires a QRZCALL.EU account with a Data or Extra subscription, and a
+    Personal Access Token generated at https://qrzcall.eu/ → My Profile →
+    Account → API Tokens"""
+    run_query(DataSource.QRZCALL, call, token=token)
 
 
 @app.command()

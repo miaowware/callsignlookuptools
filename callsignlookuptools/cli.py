@@ -11,7 +11,13 @@ from dataclasses import asdict
 from datetime import datetime
 from typing import Callable, Optional
 
-from callsignlookuptools import QrzSyncClient, CallookSyncClient, HamQthSyncClient, QrzCqSyncClient
+from callsignlookuptools import (
+    QrzSyncClient,
+    CallookSyncClient,
+    HamQthSyncClient,
+    QrzcallSyncClient,
+    QrzCqSyncClient,
+)
 from callsignlookuptools import CallsignData, CallsignLookupError, __info__
 from callsignlookuptools.common.enums import DataSource
 
@@ -27,6 +33,7 @@ lookup_classes = {
     DataSource.QRZ: QrzSyncClient,
     DataSource.CALLOOK: CallookSyncClient,
     DataSource.HAMQTH: HamQthSyncClient,
+    DataSource.QRZCALL: QrzcallSyncClient,
     DataSource.QRZCQ: QrzCqSyncClient,
 }
 
@@ -78,14 +85,18 @@ def tabulate(data: CallsignData) -> str:
     return result.rstrip("\n")
 
 
-def run_query(source: DataSource, query: str, username: Optional[str] = None, password: Optional[str] = None):
+def run_query(source: DataSource, query: str, username: Optional[str] = None, password: Optional[str] = None,
+              token: Optional[str] = None):
     """sets up and runs a callsign query, then prints the result"""
     lookup: Callable = lookup_classes[source]
 
     # non-auth sources
     if source in (DataSource.CALLOOK,):
         lookup_obj = lookup()
-    # auth sources
+    # token-auth sources (single Personal Access Token)
+    elif source in (DataSource.QRZCALL,):
+        lookup_obj = lookup(token=token)
+    # username/password-auth sources
     else:
         lookup_obj = lookup(username=username, password=password)
 

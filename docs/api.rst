@@ -37,6 +37,17 @@ HamQTH
     :members:
     :inherited-members:
 
+QRZCALL.EU
+==========
+
+.. autoclass:: QrzcallSyncClient()
+    :members:
+    :inherited-members:
+
+.. autoclass:: QrzcallAsyncClient()
+    :members:
+    :inherited-members:
+
 QRZCQ
 =====
 
